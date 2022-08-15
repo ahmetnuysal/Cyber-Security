@@ -24,10 +24,13 @@ www..dnsleaktest.com
 
 # MAC Adresi Değiştirme
 
+> 1.Yöntem
+
 **macchanger** ile mac adresimizi değiştirebiliriz ya da
+>2.Yöntem
 
-**ifconfig wlan0 down
+**ifconfig wlan0 down**
 
-ifconfig wlan hw ether XX:XX:XX:XX:XX:XX    İstediğimiz MAC adresini yapmamızı sağlar
+**ifconfig wlan hw ether XX:XX:XX:XX:XX:XX**   İstediğimiz MAC adresini yapmamızı sağlar
 
-ifconfig wlan0 up**
+**ifconfig wlan0 up**
