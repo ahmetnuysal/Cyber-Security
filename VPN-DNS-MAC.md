@@ -1,7 +1,7 @@
 VPN (Virtual Personal Network)
 DNS (Domain Name Server)
 
-```**iwconfig**``` -> bağlı olduğumuz wifi ile ilgili bilgileri detaylı olarak gösterir
+```iwconfig``` -> bağlı olduğumuz wifi ile ilgili bilgileri detaylı olarak gösterir
 
 # VPN BOOK
 
