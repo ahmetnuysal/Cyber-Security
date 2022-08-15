@@ -19,7 +19,7 @@ ifconfig wlan0 up
 # Çevredeki Modemleri Bulma
 
 ---
-```airopdump -ng wlan0mon``` -> Çevrekedi Modemleri Bulur
+```airopdump -ng wlan0mon``` -> Çevredeki Modemleri Bulur
 
 **CTRL + X ile işlemi sonlandırırız**
 
