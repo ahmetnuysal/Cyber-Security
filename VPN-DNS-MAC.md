@@ -17,3 +17,13 @@ Cloudflare -> 1.1.1.1. ya da 1.0.0.1
 # DNS sızıntı testi için
 
 www..dnsleaktest.com
+
+# MAC Adresi Değiştirme
+
+**macchanger** ile mac adresimizi değiştirebiliriz ya da
+
+**ifconfig wlan0 down
+
+ifconfig wlan hw ether XX:XX:XX:XX:XX:XX    İstediğimiz MAC adresini yapmamızı sağlar
+
+ifconfig wlan0 up**
