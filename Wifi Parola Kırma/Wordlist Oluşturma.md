@@ -3,3 +3,5 @@
 haneli şifre kombinasyonlarının olduğu wordlist oluşturur
 
 filesystem/usr/shake/wordlist içinde en çok kullanılan şifrelerin bulunduğu wordlist
+
+```cat wordlist.txt``` wordlistin içindeki şifreleri görmemizi sağlar
