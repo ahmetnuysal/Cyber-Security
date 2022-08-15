@@ -8,6 +8,24 @@
 
 **192.168.1.1** modeminizin ara yüzüne giriş yaparsınız
 
+
+
+
+
+
+
+
+
+
+# Wordlist Oluşturma
+``` crunch 6 10 0123456789abcdefgh -o passwrd.txt``` içinde "0123456789abcdefgh" geçen min 6 maks 10
+haneli şifre kombinasyonlarının olduğu wordlist oluşturur
+
+
+
+
+
+
 ## Eğer Ağda Yeteri Kadar Cihaz Yoksa
 * fakeauuth yolla
 * arpreplay çalıştır
