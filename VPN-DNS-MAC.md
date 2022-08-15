@@ -1,6 +1,10 @@
 VPN (Virtual Personal Network)
 DNS (Domain Name Server)
 
+**iwconfig** -> bağlı olduğumuz wifi ile ilgili bilgileri detaylı olarak gösterir
+
+# VPN BOOK
+
 **wwww.vpnbook.com** kali içine VPN indirmemizi sağlar
 
 **openvpn vpnadı** -> vpn dosyasını açar
