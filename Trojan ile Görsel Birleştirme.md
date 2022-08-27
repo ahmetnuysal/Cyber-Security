@@ -15,3 +15,5 @@
 #### 2. İndirdiğimiz framework'ü açıyoruz ve arama yerine ```right-to-right``` yazıp çıkan şeyi kopyalıyoruz
 #### 3. ```.exe``` dosyamızın sonunda ```gepj.exe``` yazıyoruz
 #### 3. ```gepj.exe``` kısımını seçip ```ctrl+v``` yapıyoruz ve dosya uzantısı ```.jpeg``` olarak gözüküyor
+
+### ```right-to-left``` characters kısmında yoksa google'a ```unicode-table``` yazıp çıkan siteden kopyalabiliriz ```U+202E```
