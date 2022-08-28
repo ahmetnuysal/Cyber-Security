@@ -19,3 +19,6 @@
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/7ec00a9a3d469ba29d8feaccfb0d40c1d9ef2d86/WhatsApp%20Image%202022-08-28%20at%2015.02.57.jpeg)
 > ### Credential Harvester Attack Method
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/71d6c4090d56fa3eb5d9f81b99c9a645429400da/WhatsApp%20Image%202022-08-28%20at%2015.05.24.jpeg)
+* 1: Hazır Web Templateslar
+* 2: Web Sitesi Klonlama
+* 3: Custom Kendi Html Adresimiz
