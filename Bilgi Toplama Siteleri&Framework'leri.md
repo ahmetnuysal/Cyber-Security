@@ -19,4 +19,14 @@
 > # 4.Archive (Online)
 * Websitelerinin eski hallerini arşivleyen sitedir
 
-> # 5.
+> # 5.Whoislookup (I CANN WHO IS)(Online)
+* Temel bilgileri (Register bilgileri, contact numaraları vb.) görebiliriz 
+* Ne zaman ve nereden alındığını görebiliriz
+
+> # 6.Robots.txt (Dirb)
+* ```dirb http(s)://<IP>/``` yazarak websitesi içine gizlenmiş dosyaları listeleriz (e.g. http://<IP>/multilliade/)
+* Liste içierisinde  (e.g. http://<IP>/multilliade/robots.txt) linkini google'da aratarak robots içindekileri görürüz
+* ```robots.txt``` içindeki komutları link sonuna ekleyerek istediğimiz gizli uzantılara girebiliriz (e.g. http://<IP>/mutillidae/passwords/)
+
+
+
