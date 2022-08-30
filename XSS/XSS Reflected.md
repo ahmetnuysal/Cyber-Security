@@ -1,8 +1,4 @@
-# XSS Açıkları
-
-#### XSS açıkları site içinde JS kodu çalıştırabiliyoruz demektir
-
-> ## XSS Reflected
+## XSS Reflected
 
 #### Bir link oluşturmamız gerekiyor 
 #### Site içinde site ile etkileşime girebileceğimiz yer arıyoruz 
