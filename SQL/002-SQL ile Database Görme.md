@@ -6,4 +6,4 @@
 #### 4. Veri tabanına girdikten sonra
 ![]()
 #### 5.```select*from xxx;``` Tablo İçeriğini görürüz
-![]()
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/b6e35c92d6127f1862bc60b32309d523776a4295/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-30%20at%2016.57.51.jpeg)
