@@ -1,6 +1,8 @@
 # HASHCAT
 
-#### ```apt-get install hashcat``` 
+## ```Hashcat bir çok şifrelenmiş dosya, sistem, kripto cüzdan vb. şeylerin şifrelerini kırmaya yaran framework```
+
+#### ```apt-get install hashcat``` hashcat'i yükler
 #### ```hashcat --help``` çalıştırıyoruz ve moduna bakıyoruz ```hashcat --help | grep 512 (SHA512 için)``` diyerek sadece 512'leri listeleyebiliriz
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/3e4f0ff428baabc79bff59ab06abbf1a21aebd2c/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-09-01%20at%2013.23.05.jpeg)
 ## ! Sistem hash'i kırarken ```operating system``` seçmemiz gerekiyor
