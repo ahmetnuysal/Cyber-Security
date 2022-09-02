@@ -1,9 +1,11 @@
-**Class Name** | **Network Numbers** | **Network Mask** | **# of Hosts**
---- | --- | ---
-**Class A** | 10.0.0.0 | 250.0.0.0 | 16777214
+|   Class Name  | Network Numbers |  Network Mask |    # of Hosts   |
+| ------------- | --------------- | ------------- | --------------- |
+| Class A  | 10.0.0.0   | 255.0.0.0  | 16777214   |
+| Class B | 172.16.0.0    | 255.255.0.0  | 65534   |
+| Class C | 192.168.0.0    | 255.255.255.0  | 254   |
+| Loopback (local) | 127.0.0.0    | 255.255.255.0  |     |
 
+* ### ! 255 olan kısımlar değiştirilemez sadece 0 olan kısımlar değişebilir
 
-**Security** | **Priority** | **Details and Hints**
---- | --- | ---
-**Have more than one email address** | Recommended | Consider using a different email address for security-critical communications from trivial mail such as newsletters. This compartmentalization could reduce amount of damage caused by a data breach, and also make it easier to recover a compromised account
-**Keep Email Address Private** | Recommended | Do not share your primary email publicly, as mail addresses are often the starting point for most phishing attacks
+* ### ```# of Host``` total olabilecek host sayısı - 2'dir. Çünkü 1 IP modeme ve son IP broadcast'e gider. Öğneğin Class C'de 256 tane host olabilir fakat # of hosts 254 dür. (256-2)
+
