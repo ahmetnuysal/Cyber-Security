@@ -17,3 +17,4 @@
 * -sC ile birlikte kullanılırsa işe yarar.
 * -sC: -sV ile versiyon tespiti yapılırken nmap scriptlerini kullanır.
 * -p: Sadece bu parametreden sonra belirtilen portları tarar.
+* -o: İşletim sistemi bilgilerini gösterir.
