@@ -6,3 +6,5 @@
 * ```-vv```: Detaylı Bilgi Verir
 * ```-l```: Dinleme Modunu Açar
 * ```-p XXXX```: Hangi Porttan Dinleyeceğimizi Seçeriz
+* ```-e```: Dosya Aktarımında Kullanılır
+* ```-v```: Detay Verir
