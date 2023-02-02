@@ -87,6 +87,7 @@
   - [NATCAT ile Dinleme](#NATCAT-ile-Dinleme)
   - [Weevely](#Weevely)
   - [File Inclusion](#File-Inclusion)
+  - [Nikto](#Nikto)
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -795,3 +796,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 2. Link'in sonuna ```?page="var/www/dvwa/vulnerabilities/fi/include.php"``` ekliyoruz
 3. Link sonundaki ```include.php``` kısımından silmeye başlayarak geri gidebiliriz 
 4. Ya da gitmek istediğimiz yeri link sonuna ekleyebiliriz ```e.g. http://123.123.124.123/dvwa/vulnerabilities/fi/?page=/etc/passwrd```
+
+### Nikto 
+  
+```nikto -h <site URL'si> ``` site ile ilgili tarama yapar  
