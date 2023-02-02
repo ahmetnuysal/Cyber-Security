@@ -3,6 +3,10 @@
 - [2-Monitör Mod ve Manage Mod](#2-Monitör-Mod-ve-Manage-Mod)
 - [3-Çevredeki Modemleri Bulma](#3-Çevredeki-Modemleri-Bulma)
 - [4-Deauth Saldırısı Yapma](#4-Deauth-Saldırısı-Yapma)
+  - [Ağdaki Cihazların MAC Adreslerini Görme](#Ağdaki-Cihazların-MAC-Adreslerini-Görme)
+  - [Ağdaki Cihazlara Deauth Saldırısı Yapma](#Ağdaki-Cihazlara-Deauth-Saldırısı-Yapma)
+    - [Ağdaki Bütün Cihazlara Saldırı](#Ağdaki-Bütün-Cihazlara-Saldırı)
+    - [Ağdaki Belirli Cihaza Saldırı](#Ağdaki-Belirli-Cihaza-Saldırı)
 
 
 
