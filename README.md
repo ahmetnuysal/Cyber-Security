@@ -17,6 +17,7 @@
     - [Handshake Yakalama](#Handshake-Yakalama)
     - [Wordlist Oluşturma](#Wordlist-Oluşturma)
     - [Parola Kırma](#Parola-Kırma)
+    - [Brute Force Nedir](#Brute-Force-Nedir)
 - [6-IP ve MAC Adreslerini Eşleme](#IP-ve-MAC-Adreslerini-Eşleme)
   - [Netdiscover](#Netdiscover)
   - [nmap](#nmap)
@@ -176,6 +177,11 @@ içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonları
 > ### Parola Kırma
 
 ``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
+
+> ### Brute Force
+
+Brute Force mümkün olan bütün şifre kombinasyonlarını denemektir. Bu yöntemi kullanarak şifreyi kesin buluruz fakat bu işlem saatlerce, günlerce, aylarca, hatta yılllarca sürebilir
+
 # 6-IP ve MAC Adreslerini Eşleme
 
 > ### Netdiscover
@@ -238,11 +244,13 @@ Parametreleri değiştirmek için: ```set``` komutunu kullanıyoruz. ```(e.g. ar
 
 * ```net.sniff on``` Hedef PC'yi dinlemeye başlar
 
-# HTST
-```htst``` ne olursa olsun o siteyi https olarak açmaya zorluyor
-# HTTPS to HTTP
-```hstshijack.cap``` dosyasında ```com``` uzantıları ```corn``` olarak değiştiriyoruz
+> ### HTST
 
+```htst``` ne olursa olsun o siteyi https olarak açmaya zorluyor
+
+> ### HTTPS to HTTP
+
+```hstshijack.cap``` dosyasında ```com``` uzantıları ```corn``` olarak değiştiriyoruz
 
 > ### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
 
