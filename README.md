@@ -2,7 +2,7 @@
 - [1-VPN DNS MAC](#1-VPN-DNS-MAC)
 - [2-Monitör Mod ve Manage Mod](#2-Monitör-Mod-ve-Manage-Mod)
 - [3-Çevredeki Modemleri Bulma](#3-Çevredeki-Modemleri-Bulma)
-- [4-Deauth Saldırısı Yapma](#Deauth-Saldırısı-Yapma)
+- [4-Deauth Saldırısı Yapma](#4-Deauth-Saldırısı-Yapma)
 
 
 
