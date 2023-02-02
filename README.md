@@ -55,7 +55,7 @@
 - [10-Sosyal Mühendislik](#Sosyal-Mühendislik)
   - [Maltego](#Maltego)
 - [11-Beef](#Beef)
--
+  - [JS Kodu Enjeksiyonu ve Sürekli İzleme](#JS-Kodu-Enjeksiyonu-ve-Sürekli-İzleme)
 
 
 # 1-VPN DNS MAC 
@@ -496,8 +496,6 @@ Ve toplanan bilgileri görürüz
 
 # Beef
 
-# Beef 
-
 Beef Hedef PC'nin arama motorunda JS kodu çalıştırır
 
 1. ```beef-xss``` beef'i açıyoruz
@@ -516,9 +514,9 @@ js içine kendi Kali IP'mizi yazıyoruz
 .cap içine hedef PC'nin IP'sini yazıyoruz
 
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/7a72a371b14ce345df21530e7a7c3d676869afd1/WhatsApp%20Image%202022-08-28%20at%2012.00.00.jpeg)
-```
-Bazı Beef Komutları
 
+Bazı Beef Komutları
+```
 spydereye: Browser'ın SS'ini alır
 create alert dialog: Belirlenen mesajı hedef browser ekranına bastırır
 pretty theft: Sosyal medya hesabınızdan çıkış yapıldı bastırıp kullanıcı adı ve şifre ister
