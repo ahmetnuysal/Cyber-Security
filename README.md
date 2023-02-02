@@ -86,7 +86,7 @@
   - [DVWA](#DVWA)
   - [NATCAT ile Dinleme](#NATCAT-ile-Dinleme)
   - [Weevely](#Weevely)
-  - 
+  - [File Inclusion](#File-Inclusion)
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -785,3 +785,13 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 
 4. Oluşturduğumuz php dosyasını upload ediyoruz
 5. ```weevely http://<IP>/../../uploads/myconneciton.php 11111``` yazarak session içine gireriz ve gezinebiliriz
+
+### File Inclusion
+
+1. Linkde bulunan ```?page=``` kısımını siliyoruz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/34f3233fa792bbc0248640ebbd33a03d40ab5fc0/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2018.56.58%20(1).jpeg)
+
+2. Link'in sonuna ```?page="var/www/dvwa/vulnerabilities/fi/include.php"``` ekliyoruz
+3. Link sonundaki ```include.php``` kısımından silmeye başlayarak geri gidebiliriz 
+4. Ya da gitmek istediğimiz yeri link sonuna ekleyebiliriz ```e.g. http://123.123.124.123/dvwa/vulnerabilities/fi/?page=/etc/passwrd```
