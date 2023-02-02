@@ -49,7 +49,7 @@
     - [Kendi IP Adresimizi Kullanmadan Trojan Oluşturma](#Kendi-IP-Adresimizi-Kullanmadan-Trojan-Oluşturma)
     - [Hata](#Hata)
   - [Trojan ile Görsel Birleştirme](#Trojan-ile-Görsel-Birleştirme)
-    - [Trojanin Uzantısını Değiştirme](#Trojanin Uzantısını Değiştirme)
+    - [Trojanin Uzantısını Değiştirme](#Trojanin-Uzantısını-Değiştirme)
 - [10-Sosyal Mühendislik](#Sosyal-Mühendislik)
   - [Maltego](#Maltego)
 - [11
