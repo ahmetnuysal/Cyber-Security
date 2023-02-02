@@ -59,7 +59,7 @@ ifconfig wlan0 up
 
 # 2-Monitör Mod ve Manage Mod
 
-- wifi adaptörümüzü bilgisayarımıza bağlıyoruz, daha sonra kalimizi monitör moda almamız gerekiyor
+Wifi adaptörümüzü bilgisayarımıza bağlıyoruz, daha sonra kalimizi monitör moda almamız gerekiyor
 
 > ### 1.Yöntem
 
