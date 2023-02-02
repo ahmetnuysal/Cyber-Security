@@ -140,6 +140,8 @@ Eğer Ağda Yeteri Kadar Cihaz Yoksa
 
 ### VPA ve VPA2 Parola Kırma
 
+www.gpuhash.me  -> içine yakalanan handshake'i atarak online olarak şifre kırma işlemi uygulanabilir
+
 > ### Handshake Yakalama
 
 ``` airodump -ng --channel X --bssid XX:XX:XX:XX:XX:XX --write handshake-file wlan0mon```
@@ -156,6 +158,10 @@ write: Yakalanan handshake'in nereye kayıt edileceği
 
 ``` crunch 6 10 0123456789abcdefgh -o passwrd.txt``` 
 içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonlarının olduğu passwrd isimli wordlist oluşturur
+
+```filesystem/usr/shake/wordlist``` içinde en çok kullanılan şifrelerin bulunduğu wordlist
+
+```cat wordlist.txt``` wordlistin içindeki şifreleri görmemizi sağlar
 
 > ### Parola Kırma
 
