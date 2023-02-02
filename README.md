@@ -445,7 +445,7 @@ lport: ngrok'dan kopyaladığımız PORT
 -o: .ico'nun konumu 
 ```
 
-> ###  Trojan Uzantısını Değiştirme
+> ###  Trojanin Uzantısını Değiştirme
 
 1. ```apt-get install gnome-characters``` karakter paketini indiriyoruz
 2. İndirdiğimiz framework'ü açıyoruz ve arama yerine ```right-to-right``` yazıp çıkan şeyi kopyalıyoruz
