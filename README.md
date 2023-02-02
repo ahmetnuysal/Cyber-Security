@@ -346,3 +346,6 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 7. ```sessions -l``` açık olan portları görürüz
 8  ```session 1``` 1. session açık olduğu için o porttan giriş yapar
 
+# 9- Trojan Backdoor Oluşturma
+
+### 
