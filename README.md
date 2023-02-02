@@ -59,6 +59,15 @@
 - [12-Instagram Hackleme](#Instagram-Hackleme)
   - [Brute Force](#Brute-Force)
   - [Oltalama Phishing](#Oltalama-Phishing)
+- [13-Ubuntu ile Websitesi Oluşturma](#Ubuntu-ile-Websitesi-Oluşturma)
+- [14-NoIP](#NoIP)
+- [15-Hookdan Korunmak İçin](#15-Hookdan-Korunmak-İçin)
+  - [Var ise](#Var-ise)
+- [16-Setoolkit](#Setoolkit)
+  - [Social Engineering Attack](#Social-Engineering-Attack)
+  - [Website Attack Vectors](#Website-Attack-Vectors)
+  - [Credential Harvester Attack Method](#Credential-Harvester-Attack-Method)
+  - [Web Templates](#Web-Templates)
 
 # 1-VPN DNS MAC 
 
@@ -546,3 +555,65 @@ Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
 3. ```000webhost``` adresinden bedava websitesi alabiliriz
 4. İndirdiğimiz dosyaları websitemizin ```public_html``` kısmına yüklüyoruz
 5. Arama kısımına ```https://sitemizinadı.000webhost.com/password.html``` yazarak girilen bilgileri görürüz
+
+# 14-NoIP
+
+Ücretsiz olarak hostname almamızı sağlayan sitedir
+
+1.```noip.com``` sitesine giriyoruz
+2.```quickadd``` kısmından free hostname ve domain alıyoruz
+3.```Dynamic DNS``` girip sitemize tıklıyoruz
+4.```IPv4``` yerine sunucumuzun IP adresini giriyoruz
+
+# 15-Hookdan Korunmak İçin
+
+1.Siteye sağ tık yaparak ```incele``` diyoruz 
+2.İçerisinde ```hook``` içerikli ```<script>``` kodu var mı diye kontrol ediyoruz
+
+> ### Var ise
+
+1. Sayfayı Kapatıyoruz
+2. PC'yi resetliyoruz
+3. İnternet sağlayıcımızı arayarak IP adresimizi değiştiriyoruz
+
+# 16-Setoolkit (Social Engineering Toolkit)
+
+1. ```setoolkit``` tool'u açıyoruz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/88ac00ceec1bd42735948076f806d36ac5d0e89f/WhatsApp%20Image%202022-08-28%20at%2014.53.30.jpeg)
+
+* 1: Sosyal Mühendislik Atağı
+* 2: Sızma Testi Araçları
+* 3: Setoolkit için yazılmış 3th party uygulamaları çalıştırır
+
+> ### Social-Engineering Attack
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/540f2a7967dbc04796e3df22f4938e7e17290487/WhatsApp%20Image%202022-08-28%20at%2014.56.53.jpeg)
+
+* 1: Kişiye/Kuruma Özel Sosyal Mühendislik
+* 2: Websitesi Saldırı
+* 3: Zararlı Yazılım Oluşturur
+* 4: Backdoor Oluşturur
+* 5: Mail Yollar
+* 6: Ardunio İçine Trojan
+* 7: Wifi Atak
+* 8: Zararlı QR Kod Oluşturur
+
+> ### Website Attack Vectors
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/7ec00a9a3d469ba29d8feaccfb0d40c1d9ef2d86/WhatsApp%20Image%202022-08-28%20at%2015.02.57.jpeg)
+
+> ### Credential Harvester Attack Method
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/71d6c4090d56fa3eb5d9f81b99c9a645429400da/WhatsApp%20Image%202022-08-28%20at%2015.05.24.jpeg)
+
+* 1: Hazır Web Templateslar
+* 2: Web Sitesi Klonlama
+* 3: Custom Kendi Html Adresimiz
+
+> ### Web Templates
+
+6. Bizden yanıtların yollayacağı IP adresini istiyor
+7. ```./ngrok http 80``` çalıştırıp http adresine bakıyoruz
+8. ```ping XXX.XXX.XXX.XXX``` ngrok steimizin IP adresini öğreniyoruz (XXX.XXX.XXX.XXX: http adresi)
+9. Öğrendiğimiz IP adresini ```setoolkit```'e yazıyoruz, arayüz seçip çalıştırıyoruz
