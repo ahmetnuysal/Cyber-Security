@@ -36,10 +36,10 @@ www..dnsleaktest.com
 
 ### MAC Adresi Değiştirme
 
-> 1.Yöntem
+> ### 1.Yöntem
 
 ```macchanger```ile mac adresimizi değiştirebiliriz ya da
->2.Yöntem
+> ### 2.Yöntem
 ```
 ifconfig wlan0 down
 
