@@ -269,7 +269,7 @@ Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yaza
 
 # 8- NMAP
 
-> ### NMAP ile Açık Arama
+### NMAP ile Açık Arama
 
 ```nmap -v -sS -A -T4 XX:XX:XX:XX:XX (Target IP)```  Taranan adresteki açıkları gösterir
 
@@ -320,3 +320,16 @@ Telnet SSH'dan daha güvensizdir. ```telnet 192.168.123.123``` çalıştırarak 
 ### SSH
 
 ```sshmsfadmin@192.168.123.123``` çalıştırarak giriş yapıp ```wireshark``` üzerinden şifre ve kullanıcı adını **şifrelenmiş** olarak görürüz
+
+### SAMBA
+
+Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketlerdeki PC, yazıcı vb şeyleri birbirine bağlar
+```
+1. Samba Numarasını ```(samba smbd 3.x-4.x) exploit``` ile google'da ararız
+2. ```msfconsole``` açarız
+3. Google üzerinde çıkan komutları yazıyoruz
+4. ```LHOST``` bizim IP adresimiz
+5. ```exploit -j -z``` dinleyeme başlıyoruz ```-j -z``` dersek dinlemeyi arka planda yapar
+6. ```sessions -l``` açık olan portları görürüz
+7. ```session 1``` 1. session açık olduğu için o porttan giriş yapar
+```
