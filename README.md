@@ -21,6 +21,8 @@
   - [Netdiscover](#Netdiscover)
   - [nmap](#nmap)
 - [7-Man in the Middle Saldırısı](#7-Man-in-the-Middle-Saldırısı)
+  - [Arpspoof](#Arpspoof)
+  - [Wireshark ile MITM Saldırısı İzleme](#Wireshark-ile-MITM-Saldırısı-İzleme)
   - [Windows Bilgisayarımıza MITM Saldırısı Var Mı](#Windows-Bilgisayarımıza-MITM-Saldırısı-Var-Mı)
 
 
@@ -186,6 +188,8 @@ karşı taraf görebilir
 
 # 7-Man in the Middle Saldırısı
 
+> ### Arpspoof
+
 İlk olarak **arpspoof**'u indirmemiz gerekiyor onun için; ```apt install dsniff```
 
 ```arpspoof -i eth0 -t XX:XX:XX:XX YY:YY:YY:YY```  target'a kendimizi modem olarak tanıtıyoruz
@@ -201,6 +205,16 @@ XX:XX:XX:XX : Kurban IP
 
 ``` echo 1 > /proc/sys/net/ipv4/ip-forward``` IP forwardlamayı etkinleştirerek **hedef pc'nin** ağdan kopmamasını sağlıyoruz
 
-### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
+> ### Wireshark ile MITM Saldırısı İzleme
+
+* Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebilir eğer işlemlerin yanında **duplicate use of..** yazıyorsa MITM saldırısı vardır
+* **http** olan websitesi içine girilen bilgiler (e.g. Login bilgileri) Wireshark içinden incelenerek görülebilir
+* **https** olan websitelerinde bu bilgiler şifreli olarak taşındığı için açık şekilde okunamaz
+
+  ![wireshark görsel](https://github.com/ahmetnuysal/Cyber-Security/blob/6880076de41a97a03edb4fe36e75dfce1e58ac9a/MITM/WhatsApp%20Image%202022-08-16%20at%2019.17.24.jpeg)
+
+
+> ### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
 
 Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yazarak modem ile aynı MAC adresine sahip birisi var mı görüyoruz
+
