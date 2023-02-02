@@ -270,7 +270,7 @@ Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yaza
 
 # NMAP ile Açık İnceleme
 
-```nmap -v -sS -A -T4 XX:XX:XX:XX:XX```  Taranan adresteki açıkları gösterir
+```nmap -v -sS -A -T4 XX:XX:XX:XX:XX (Target IP)```  Taranan adresteki açıkları gösterir
 
 > ### NMAP Komutları
 ```
