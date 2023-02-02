@@ -743,14 +743,32 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 ### DVWA 
 
 * metasploitable2 IP adresini Kali üzerinden açıyoruz (Username:admin Password:password)
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/e4dd237223d366719e2b6bb6e3e10232ab630e4d/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.31.46.jpeg)
+
 * Command execution kısmına giriyoruz, bu kısımdan siteye form yollayabiliriyoruz
 * IP adresimizin sonunda Linux komutları çalıştırmayı deniyoruz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/42e3c1f9c825f1c1462ccc16069e42bc305cf071/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.35.42.jpeg)
+
 * Komutu çalıştırabildik                                                
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/dfd38c27ffc53942cfde3fcca7d8f7011bdcdb3e/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.39.14.jpeg)
+
 * Google'a ```reverseshell commens``` yazarak komutları arıyoruz
 * Bulduğumuz komutları IP'mizin sonuna ekleyerek çalıştırıyoruz
 * Aynı zamanda ```msfconsole``` çalıştırarak dinlemeye başlıyoruz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/1e6067bcbb08a3c6085b8b4bb1da5cdaf0fa6ea3/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-29%20at%2014.42.00.jpeg)
-  
+
+### NATCAT ile Dinleme
+
+```nc -vv -l -p 5050``` Natcat ile port dinlemesi yapmamızı sağlar
+```connect to 123.123.123.123 from UNKKNOWN...``` bağlanıldı demektir
+```
+-vv: Detaylı Bilgi Verir
+-l: Dinleme Modunu Açar
+-p XXXX: Hangi Porttan Dinleyeceğimizi Seçeriz
+-e: Dosya Aktarımında Kullanılır
+-v: Detay Verir
+```  
