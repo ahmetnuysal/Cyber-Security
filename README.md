@@ -56,7 +56,9 @@
   - [Maltego](#Maltego)
 - [11-Beef](#Beef)
   - [JS Kodu Enjeksiyonu ve Sürekli İzleme](#JS-Kodu-Enjeksiyonu-ve-Sürekli-İzleme)
-
+- [12-Instagram Hackleme](#Instagram-Hackleme)
+  - [Brute Force](#Brute-Force)
+  - [Oltalama Phishing](#Oltalama Phishing)
 
 # 1-VPN DNS MAC 
 
@@ -522,4 +524,23 @@ create alert dialog: Belirlenen mesajı hedef browser ekranına bastırır
 pretty theft: Sosyal medya hesabınızdan çıkış yapıldı bastırıp kullanıcı adı ve şifre ister
 fake notificatio bar: Hedefe fake bir güncelleme bildirimi yollayıp dosya indirebiliriz
 ```
-                         
+
+# 12-Instagram Hackleme
+
+> ### Brute Force
+
+Wordlist oluşturarak instagram vb. siteleri hacklemek için kullanılır
+
+1. İlk olarak ```git clone https://github.com/Pure-LOG1C/Instagram.git``` kuruyoruz
+2. ```crunch 7 8 xyz123 -o instawordlist``` ile wordlist oluşturuyoruz
+3. ```python instagram.py kullanıcıadı instawordlist 10``` ile wordlist içindeki şifreleri denemeye başlıyoruz 
+
+```kullanıcıadı```: Hedef hesabın kullanıcı adı
+
+> ### Oltalama Phishing
+
+1. Google'a ```Instagram phishing script 2022``` aratıyoruz
+2. ```index.html``` ve ```post.php``` dosyalarını indiriyoruz ve fake instagram giriş sayfası yapıyoruz
+3. ```000webhost``` adresinden bedava websitesi alabiliriz
+4. İndirdiğimiz dosyaları websitemizin ```public_html``` kısmına yüklüyoruz
+5. Arama kısımına ```https://sitemizinadı.000webhost.com/password.html``` yazarak girilen bilgileri görürüz
