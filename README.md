@@ -58,7 +58,7 @@
   - [JS Kodu Enjeksiyonu ve Sürekli İzleme](#JS-Kodu-Enjeksiyonu-ve-Sürekli-İzleme)
 - [12-Instagram Hackleme](#Instagram-Hackleme)
   - [Brute Force](#Brute-Force)
-  - [Oltalama Phishing](#Oltalama Phishing)
+  - [Oltalama Phishing](#Oltalama-Phishing)
 
 # 1-VPN DNS MAC 
 
