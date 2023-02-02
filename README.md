@@ -22,9 +22,11 @@
   - [nmap](#nmap)
 - [7-Man in the Middle Saldırısı](#7-Man-in-the-Middle-Saldırısı)
   - [Arpspoof](#Arpspoof)
+  - [Wireshark ile MITM Saldırısı İzleme](#Wireshark-ile-MITM-Saldırısı-İzleme)
   - [Bettercap](#Bettercap)
     - [Bettercap ile Dinleme Yapma](#Bettercap-ile-Dinleme-Yapma)
-  - [Wireshark ile MITM Saldırısı İzleme](#Wireshark-ile-MITM-Saldırısı-İzleme)
+  - [HTST](#HTST)
+  - [HTTPS to HTTP](#HTTPS-to-HTTP)
   - [Windows Bilgisayarımıza MITM Saldırısı Var Mı](#Windows-Bilgisayarımıza-MITM-Saldırısı-Var-Mı)
 
 
@@ -222,7 +224,7 @@ Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebili
 * ```net.show``` Toplanan bilgileri özet olarak gösterir
 ```
 ```
-### Bettercap İçinde
+Bettercap İçinde
 * ```arp.ban on``` hedef PC'ye deauth saldırısı yapar
 * ```arp.spoof.fullduplex``` Hem modeme hem PC'ye MITM saldırısı yapar
 * ```arp.spoof.internal``` True olursa, PC'ler arasındaki bağlantıları gösterir
@@ -235,6 +237,11 @@ Parametreleri değiştirmek için: ```set``` komutunu kullanıyoruz. ```(e.g. ar
 > ### Bettercap ile Dinleme Yapma
 
 * ```net.sniff on``` Hedef PC'yi dinlemeye başlar
+
+# HTST
+```htst``` ne olursa olsun o siteyi https olarak açmaya zorluyor
+# HTTPS to HTTP
+```hstshijack.cap``` dosyasında ```com``` uzantıları ```corn``` olarak değiştiriyoruz
 
 
 > ### Windows Bilgisayarımıza MITM Saldırısı Var Mı 
