@@ -178,9 +178,11 @@ içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonları
 
 ``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
 
-> ### Brute Force
+> ### Brute Force Nedir
 
 Brute Force mümkün olan bütün şifre kombinasyonlarını denemektir. Bu yöntemi kullanarak şifreyi kesin buluruz fakat bu işlem saatlerce, günlerce, aylarca, hatta yılllarca sürebilir
+
+![image](https://user-images.githubusercontent.com/85068070/216357440-ba01b31d-76d1-4f35-b7ba-47da04ead32f.png)
 
 # 6-IP ve MAC Adreslerini Eşleme
 
