@@ -436,6 +436,8 @@ lport: ngrok'dan kopyaladığımız PORT
 ```/opt/veil/tools/evasion/tool.py``` içindeki kodda ```!Error!You did not provide a valid IP``` kodunu siliyoruz(421-424.satır)
 ```selected_payload__ ``` kısmını if ile alt alta getirip ```if helpes validate_ip(value)``` kodunu siliyoruz
 
+Ngrok kullanarak trojan oluştururken (veil ya da msfvenom) ```LHOST``` yerine 0.tcp.eu.ngrok ```LPORT``` yerine (ngrok içindeki port) 17716 (değişebilir) yazıyoruz
+
 ### Trojan ile Görsel Birleştirme
 
 1. İlk olarak görselimizi (.jpeg) seçip google üzerinden uzantısını ```.ico```'ya çeviriyoruz 
