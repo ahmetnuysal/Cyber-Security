@@ -17,7 +17,7 @@
     - [Handshake Yakalama](#Handshake-Yakalama)
     - [Wordlist Oluşturma](#Wordlist-Oluşturma)
     - [Parola Kırma](#Parola-Kırma)
-
+- [6-Man in the Middle Saldırısı](#6-Man-in-the-Middle-Saldırısı)
 
 
 # 1-VPN DNS MAC 
@@ -166,3 +166,6 @@ içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonları
 > ### Parola Kırma
 
 ``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
+
+# 6-Man in the Middle Saldırısı
+
