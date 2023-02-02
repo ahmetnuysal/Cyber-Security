@@ -17,7 +17,10 @@
     - [Handshake Yakalama](#Handshake-Yakalama)
     - [Wordlist Oluşturma](#Wordlist-Oluşturma)
     - [Parola Kırma](#Parola-Kırma)
-- [6-Man in the Middle Saldırısı](#6-Man-in-the-Middle-Saldırısı)
+- [6-IP ve MAC Adreslerini Eşleme](#IP-ve-MAC-Adreslerini-Eşleme)
+  - [Netdiscover](#Netdiscover)
+  - [nmap](#nmap)
+- [7-Man in the Middle Saldırısı](#7-Man-in-the-Middle-Saldırısı)
 
 
 # 1-VPN DNS MAC 
@@ -166,6 +169,19 @@ içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonları
 > ### Parola Kırma
 
 ``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
+# 6-IP ve MAC Adreslerini Eşleme
 
-# 6-Man in the Middle Saldırısı
+> ### Netdiscover
+
+```netdiscover -i eth0 -r XX:XX:XX/24 -c 10``` 
+
+* -r: eth0'daki inet'in ilk 6 hanesi
+* -c: deneme sayısı
+
+> ### nmap
+
+``` nmap XX:XX.XX.0/24 ```  0 ve 24 yani tüm aralıktaki IPlere istek atar, IP ve MAC adreslerini eşleştirip ekstra bilgi verir. Atılan istekleri
+karşı taraf görebilir
+
+# 7-Man in the Middle Saldırısı
 
