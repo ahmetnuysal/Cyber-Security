@@ -1,5 +1,9 @@
 # Cyber Security
 - [1-VPN DNS MAC](#1-VPN-DNS-MAC)
+  - [VPN Book](#VPN-Book)
+  - [Kali DNS Ayarları Değiştirme](#Kali-DNS-Ayarları-Değiştirme)
+  - [DNS Sızıntı Testi](#DNS-Sızıntı-Testi)
+  - [MAC Adresi Değiştirme](#MAC-Adresi-Değiştirme)
 - [2-Monitör Mod ve Manage Mod](#2-Monitör-Mod-ve-Manage-Mod)
 - [3-Çevredeki Modemleri Bulma](#3-Çevredeki-Modemleri-Bulma)
 - [4-Deauth Saldırısı Yapma](#4-Deauth-Saldırısı-Yapma)
@@ -19,7 +23,7 @@ DNS (Domain Name Server)
 
 ```iwconfig``` -> bağlı olduğumuz wifi ile ilgili bilgileri detaylı olarak gösterir
 
-### VPN BOOK
+### VPN Book
 
 ```wwww.vpnbook.com``` kali içine VPN indirmemizi sağlar
 
@@ -34,7 +38,7 @@ DNS (Domain Name Server)
 Google DNS-> 8.8.8.8 ya da 8.4.4.8
 Cloudflare -> 1.1.1.1. ya da 1.0.0.1
 
-### DNS sızıntı testi için
+### DNS Sızıntı Testi 
 
 www..dnsleaktest.com
 
@@ -43,6 +47,7 @@ www..dnsleaktest.com
 > ### 1.Yöntem
 
 ```macchanger```ile mac adresimizi değiştirebiliriz ya da
+
 > ### 2.Yöntem
 ```
 ifconfig wlan0 down
@@ -92,6 +97,7 @@ airodump -ng --channel X (kanal numarası) --bssid XX:XX:XX:XX:XX:XX (MAC adresi
 dosya adı) wlan0
 ```
 ### Ağdaki Cihazlara Deauth Saldırısı Yapma
+
 > ### Ağdaki Bütün Cihazlara Saldırı
 ```
 aireplay -ng --deauth A -a XX:XX:XX:XX:XX:XX wlan0mon
