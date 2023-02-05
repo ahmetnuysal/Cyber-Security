@@ -1288,7 +1288,9 @@ Raporlar ne kadar açık ve detaylı/bilgilendirici olursa müşterinin riski de
 > ### Volumetrik Saldırılar
 
 ```UDP```: Temel portlarına çok sayıda UDP paketi yollanamasıdır
+
 ```ICMP```: **Smurf saldırı** ve **pink flood** saldırılarıdır
+
 ```Reflection Amplification Saldırıları```
 
 ! ```ICMP```'den korunmak için **bant genişliği arttırılabilir** veya **paket sayısı ve boyutu kısıtlanabilir**
@@ -1308,6 +1310,7 @@ hping3 -c 15000 -d 120 -S -w 64 -o 80 --flood --rand -source 192.168.123.123
 ```
 
 ```HTTP FLOOD``` 
+
 ```SLOWLORIS```
 ``` 
 git clone https://githubcom/gkbrk/slowloris.git
