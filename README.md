@@ -834,7 +834,7 @@ Bu kısıma ```<script>alert("ı hack you")</script>``` yazıyoruz ve submit edi
 
 Eğer birisine sitenin ```url```sini yollarsak yolladığımız kişininde ekranında bu bildirimi görürüz
 
-### XXS Stored
+### XSS Stored
 
 Bu sefer form siteleri benzeri bir etkileşim yeri buluyoruz
 
