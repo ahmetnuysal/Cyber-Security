@@ -812,7 +812,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
   
 XSS açıkları site içinde JS kodu çalıştırabiliyoruz demektir
 
-# XSS
+### XSS
   
 1. Site ile etkileşime girebileceğimiz bir yere giriyoruz (form vb.)
 2. ```<script>alert("XSS Açığı")</script>``` kodunu yazarak deneme yapıyoruz
