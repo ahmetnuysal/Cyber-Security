@@ -88,13 +88,24 @@
   - [Weevely](#Weevely)
   - [File Inclusion](#File-Inclusion)
   - [Nikto](#Nikto)
-- [XSS Açıkları](#XSS-Açıkları)
-  - [XSS](#Xss)
+- [XSS](#XSS)
+  - [XSS Açıkları](#Xss-Açıkları)
   - [XSS Reflected](#XSS-Reflected)
   - [XSS Stored](#XSS-Stored)
     - [XSS Stored ve Beef Çalıştırma](#XSS-Stored-ve-Beef-Çalıştırma)
   - [XSSden Korunmak İçin](#XSSden-Korunmak-İçin)
-  
+- [SQL](#SQL)
+  - [SQL Kodları](#SQL-Kodları)
+  - [SQL ile Database Görme](#SQL-ile-Database-Görme)
+  - [Mutillidae İçinde SQL Hatası](#Mutillidae-İçinde-SQL-Hatası)
+  - [SQL Açığı Arama](#SQL-Açığı-Arama)
+  - [SQL Post Methodu](#SQL-Post-Methodu)
+  - [Union Select](#Union-Select)
+  - [Veri tabanı-Table Name-Sütun Name-Admin Bilgisi](Veri-tabanı-Table-Name-Sütun-Name-Admin Bilgisi)
+  - [SQL Map](#SQL-Map)
+  - [ZAP](#ZAP)
+  - [SQL Enjeksiyonu](#SQL-Enjeksiyonu)
+  - [Login By-Pass](#Login-By-Pass)
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -806,7 +817,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 
 ### Nikto 
   
-```nikto -h <site URL'si> ``` site ile ilgili tarama yapar  
+```nikto -h (site URL'si) ``` site ile ilgili tarama yapar  
 
 # XSS Açıkları
   
@@ -860,3 +871,7 @@ Artık bu siteye giren herkes hook'umuza takılmış olucak ve ```beef``` üzeri
 Google -> Ayarlar -> Gizlilik ve Güvenlik -> Site Ayarları -> JavaScript 
 
 Varsayılan durumunu kapatıp sadece güvendiğimiz siteleri listeye eklemeliyiz
+
+# SQL
+
+![sqliteonline.com](https://sqliteonline.com/) sitesinden SQL kodlarını deneyebiliriz
