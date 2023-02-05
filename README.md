@@ -88,6 +88,12 @@
   - [Weevely](#Weevely)
   - [File Inclusion](#File-Inclusion)
   - [Nikto](#Nikto)
+- [XSS Açıkları](#XSS-Açıkları)
+  - [XSS](#Xss)
+  - [XSS Reflected](#XSS-Reflected)
+  - [XSS Stored](#XSS-Stored)
+  - [XSSden Korunmak İçin](#XSSden Korunmak İçin)
+  
 # 1-VPN DNS MAC 
 
 VPN (Virtual Personal Network)
@@ -800,3 +806,7 @@ Shodan Bilgi Toplama ve Arama Motoru'dur
 ### Nikto 
   
 ```nikto -h <site URL'si> ``` site ile ilgili tarama yapar  
+
+# XSS Açıkları
+  
+XSS açıkları site içinde JS kodu çalıştırabiliyoruz demektir
